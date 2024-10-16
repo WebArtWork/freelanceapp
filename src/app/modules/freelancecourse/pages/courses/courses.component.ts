@@ -4,12 +4,15 @@ import { FreelancecourseService, Freelancecourse } from '../../services/freelanc
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './courses.component.html',
 	styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent {
+	readonly startupId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
+	
 	columns = ['name', 'description'];
 
 	form: FormInterface = this._form.getForm('courses', {
@@ -53,6 +56,10 @@ export class CoursesComponent {
 			this._form.modal<Freelancecourse>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
+					if (this.startupId) {
+						(created as Freelancecourse).startup = this.startupId;
+					}
+
 					this._sf.create(created as Freelancecourse);
 					close();
 				},
@@ -103,6 +110,7 @@ export class CoursesComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _router: Router
 	) {}
 }

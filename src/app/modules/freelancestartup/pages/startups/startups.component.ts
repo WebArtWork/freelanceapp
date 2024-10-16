@@ -97,6 +97,12 @@ export class StartupsComponent {
 					return '/jobs/' + doc._id;
 				},
 			},
+			{
+				icon: 'menu_book',
+				hrefFunc: (doc: Freelancestartup) => {
+					return '/courses/' + doc._id;
+				},
+			},
 		],
 	};
 
