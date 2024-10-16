@@ -121,6 +121,32 @@ const routes: Routes = [
 					import('./modules/freelancecomment/pages/comments/comments.module').then(
 						(m) => m.CommentsModule
 					)
+			},
+			{
+				path: 'courses',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Courses'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancecourse/pages/courses/courses.module').then(
+						(m) => m.CoursesModule
+					)
+			},
+			{
+				path: 'skills',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Skills'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceskill/pages/skills/skills.module').then(
+						(m) => m.SkillsModule
+					)
 			}
 		]
 	},

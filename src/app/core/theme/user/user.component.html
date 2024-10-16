@@ -118,6 +118,26 @@
 					<span class="material-icons">comment</span>
 					<span translate>Theme.Comments</span>
 				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/courses"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">menu_book</span>
+					<span translate>Theme.Courses</span>
+				</a>
+				<a
+					[routerLinkActiveOptions]="{ exact: true }"
+					routerLinkActive="_activeLink"
+					routerLink="/skills"
+					class="nav__burger-link"
+					(click)="hideSidebar()"
+				>
+					<span class="material-icons">psychology</span>
+					<span translate>Theme.Skills</span>
+				</a>
 				<hr />
 			</div>
 		</div>
