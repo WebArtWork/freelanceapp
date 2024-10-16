@@ -4,12 +4,15 @@ import { FreelancejobService, Freelancejob } from '../../services/freelancejob.s
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './jobs.component.html',
 	styleUrls: ['./jobs.component.scss'],
 })
 export class JobsComponent {
+	readonly startupId = this._router.url.includes('/jobs/') ? this._router.url.replace('/jobs/', '') : '';
+
 	columns = ['name', 'description'];
 
 	form: FormInterface = this._form.getForm('jobs', {
@@ -53,7 +56,12 @@ export class JobsComponent {
 			this._form.modal<Freelancejob>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
+					if (this.startupId) {
+						(created as Freelancejob).startup = this.startupId;
+					}
+
 					this._sf.create(created as Freelancejob);
+
 					close();
 				},
 			});
@@ -63,6 +71,7 @@ export class JobsComponent {
 				.modal<Freelancejob>(this.form, [], doc)
 				.then((updated: Freelancejob) => {
 					this._core.copy(updated, doc);
+
 					this._sf.update(doc);
 				});
 		},
@@ -103,6 +112,7 @@ export class JobsComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _router: Router
 	) {}
 }

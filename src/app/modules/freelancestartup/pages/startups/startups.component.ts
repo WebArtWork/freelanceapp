@@ -91,6 +91,12 @@ export class StartupsComponent {
 					this._form.modalUnique<Freelancestartup>('startups', 'url', doc);
 				},
 			},
+			{
+				icon: 'work',
+				hrefFunc: (doc: Freelancestartup) => {
+					return '/jobs/' + doc._id;
+				},
+			},
 		],
 	};
 
