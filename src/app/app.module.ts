@@ -147,6 +147,32 @@ const routes: Routes = [
 					import('./modules/freelanceskill/pages/skills/skills.module').then(
 						(m) => m.SkillsModule
 					)
+			},
+			{
+				path: 'startups',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Startups'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancestartup/pages/startups/startups.module').then(
+						(m) => m.StartupsModule
+					)
+			},
+			{
+				path: 'tests',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Tests'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancetest/pages/tests/tests.module').then(
+						(m) => m.TestsModule
+					)
 			}
 		]
 	},
