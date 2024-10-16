@@ -95,6 +95,19 @@ const routes: Routes = [
 					import('./modules/freelancejob/pages/jobs/jobs.module').then(
 						(m) => m.JobsModule
 					)
+			},
+			{
+				path: 'applications',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Applications'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceapplication/pages/applications/applications.module').then(
+						(m) => m.ApplicationsModule
+					)
 			}
 		]
 	},
