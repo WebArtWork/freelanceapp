@@ -38,7 +38,7 @@ const routes: Routes = [
 					}
 				},
 				loadChildren: () => import('./pages/guest/test/test.module').then(m => m.TestModule)
-			}, 
+			},
 			{
 				path: 'components',
 				canActivate: [MetaGuard],
@@ -48,7 +48,7 @@ const routes: Routes = [
 					}
 				},
 				loadChildren: () => import('./pages/guest/components/components.module').then(m => m.ComponentsModule)
-			}, 
+			},
 			{
 				path: 'sign',
 				canActivate: [MetaGuard],
@@ -81,6 +81,19 @@ const routes: Routes = [
 				loadChildren: () =>
 					import('./pages/user/profile/profile.module').then(
 						(m) => m.ProfileModule
+					)
+			},
+			{
+				path: 'jobs',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Jobs'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancejob/pages/jobs/jobs.module').then(
+						(m) => m.JobsModule
 					)
 			}
 		]
