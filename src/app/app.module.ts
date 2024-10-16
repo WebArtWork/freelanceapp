@@ -108,6 +108,19 @@ const routes: Routes = [
 					import('./modules/freelanceapplication/pages/applications/applications.module').then(
 						(m) => m.ApplicationsModule
 					)
+			},
+			{
+				path: 'comments',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Comments'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancecomment/pages/comments/comments.module').then(
+						(m) => m.CommentsModule
+					)
 			}
 		]
 	},
