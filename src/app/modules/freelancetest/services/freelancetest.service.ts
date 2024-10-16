@@ -11,6 +11,7 @@ import {
 export interface Freelancetest extends CrudDocument {
 	name: string;
 	description: string;
+	startup: string;
 }
 
 @Injectable({

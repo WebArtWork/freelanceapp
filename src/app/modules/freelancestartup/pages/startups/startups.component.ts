@@ -4,6 +4,7 @@ import { FreelancestartupService, Freelancestartup } from '../../services/freela
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './startups.component.html',
@@ -101,6 +102,12 @@ export class StartupsComponent {
 				icon: 'menu_book',
 				hrefFunc: (doc: Freelancestartup) => {
 					return '/courses/' + doc._id;
+				},
+			},
+			{
+				icon: 'quiz',
+				hrefFunc: (doc: Freelancestartup) => {
+					return '/tests/' + doc._id;
 				},
 			},
 		],

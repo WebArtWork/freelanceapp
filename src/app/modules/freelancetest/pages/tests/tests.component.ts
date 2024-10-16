@@ -4,12 +4,15 @@ import { FreelancetestService, Freelancetest } from '../../services/freelancetes
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './tests.component.html',
 	styleUrls: ['./tests.component.scss'],
 })
 export class TestsComponent {
+	readonly startupId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
+
 	columns = ['name', 'description'];
 
 	form: FormInterface = this._form.getForm('tests', {
@@ -53,6 +56,10 @@ export class TestsComponent {
 			this._form.modal<Freelancetest>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
+					if (this.startupId) {
+						(created as Freelancetest).startup = this.startupId;
+					}
+
 					this._sf.create(created as Freelancetest);
 					close();
 				},
@@ -103,6 +110,7 @@ export class TestsComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
-	) {}
+		private _core: CoreService,
+		private _router: Router
+	) { }
 }
