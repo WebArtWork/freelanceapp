@@ -1,0 +1,7 @@
+<div class="header" (click)="config.toggle()">
+	<ng-content select="[header]"></ng-content>
+</div>
+
+<div class="body" *ngIf="this.config.show">
+	<ng-content select="[body]"></ng-content>
+</div>
