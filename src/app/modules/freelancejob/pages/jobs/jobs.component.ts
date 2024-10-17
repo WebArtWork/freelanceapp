@@ -5,6 +5,7 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { Freelanceapplication } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
 
 @Component({
 	templateUrl: './jobs.component.html',
@@ -98,6 +99,12 @@ export class JobsComponent {
 				icon: 'cloud_download',
 				click: (doc: Freelancejob) => {
 					this._form.modalUnique<Freelancejob>('jobs', 'url', doc);
+				},
+			},
+			{
+				icon: 'description',
+				hrefFunc: (doc: Freelancejob) => {
+					return '/applications/' + doc._id;
 				},
 			},
 		],

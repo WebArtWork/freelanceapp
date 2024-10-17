@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [{
 	path: '',
 	component: ApplicationsComponent
+}, {
+	path: ':job',
+	component: ApplicationsComponent
 }];
 
 @NgModule({

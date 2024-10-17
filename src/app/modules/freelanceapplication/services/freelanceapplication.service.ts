@@ -11,6 +11,7 @@ import {
 export interface Freelanceapplication extends CrudDocument {
 	name: string;
 	description: string;
+	job: string;
 }
 
 @Injectable({

@@ -4,12 +4,15 @@ import { FreelanceapplicationService, Freelanceapplication } from '../../service
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './applications.component.html',
 	styleUrls: ['./applications.component.scss'],
 })
 export class ApplicationsComponent {
+	readonly jobId = this._router.url.includes('/applications/') ? this._router.url.replace('/applications/', '') : '';
+
 	columns = ['name', 'description'];
 
 	form: FormInterface = this._form.getForm('applications', {
@@ -53,6 +56,10 @@ export class ApplicationsComponent {
 			this._form.modal<Freelanceapplication>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
+					if (this.jobId) {
+						(created as Freelanceapplication).job = this.jobId;
+					}
+
 					this._sf.create(created as Freelanceapplication);
 					close();
 				},
@@ -103,6 +110,7 @@ export class ApplicationsComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _router: Router
 	) {}
 }
