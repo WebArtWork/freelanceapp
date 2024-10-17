@@ -98,6 +98,12 @@ export class CoursesComponent {
 					this._form.modalUnique<Freelancecourse>('courses', 'url', doc);
 				},
 			},
+			{
+				icon: 'verified',
+				hrefFunc: (doc: Freelancecourse) => {
+					return '/certificates/' + doc._id;
+				},
+			},
 		],
 	};
 

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CoreModule } from 'src/app/core/core.module';
-import { CommentsComponent } from './comments.component';
+import { CertificatesComponent } from './certificates.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [{
 	path: '',
-	component: CommentsComponent
+	component: CertificatesComponent
+}, {
+	path: ':course',
+	component: CertificatesComponent
 }];
 
 @NgModule({
@@ -14,10 +17,10 @@ const routes: Routes = [{
 		CoreModule
 	],
 	declarations: [
-		CommentsComponent
+		CertificatesComponent
 	],
 	providers: []
 
 })
 
-export class CommentsModule { }
+export class CertificatesModule { }

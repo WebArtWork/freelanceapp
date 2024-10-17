@@ -110,19 +110,6 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'comments',
-				canActivate: [MetaGuard],
-				data: {
-					meta: {
-						title: 'Comments'
-					}
-				},
-				loadChildren: () =>
-					import('./modules/freelancecomment/pages/comments/comments.module').then(
-						(m) => m.CommentsModule
-					)
-			},
-			{
 				path: 'courses',
 				canActivate: [MetaGuard],
 				data: {
@@ -133,6 +120,19 @@ const routes: Routes = [
 				loadChildren: () =>
 					import('./modules/freelancecourse/pages/courses/courses.module').then(
 						(m) => m.CoursesModule
+					)
+			},
+			{
+				path: 'certificates',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Certificates'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancecertificate/pages/certificates/certificates.module').then(
+						(m) => m.CertificatesModule
 					)
 			},
 			{

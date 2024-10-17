@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
 import { AlertService, CoreService } from 'wacom';
-import { FreelancecommentService, Freelancecomment } from '../../services/freelancecomment.service';
+import { FreelancecertificateService, Freelancecertificate } from '../../services/freelancecertificate.service';
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { Router } from '@angular/router';
 
 @Component({
-	templateUrl: './comments.component.html',
-	styleUrls: ['./comments.component.scss'],
+	templateUrl: './certificates.component.html',
+	styleUrls: ['./certificates.component.scss'],
 })
-export class CommentsComponent {
+export class CertificatesComponent {
+	readonly courseId = this._router.url.includes('/certificates/') ? this._router.url.replace('/certificates/', '') : '';
+
 	columns = ['name', 'description'];
 
-	form: FormInterface = this._form.getForm('comments', {
-		formId: 'comments',
-		title: 'Comments',
+	form: FormInterface = this._form.getForm('certificates', {
+		formId: 'certificates',
+		title: 'Certificates',
 		components: [
 			{
 				name: 'Text',
@@ -23,7 +26,7 @@ export class CommentsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill comments title',
+						value: 'fill certificates title',
 					},
 					{
 						name: 'Label',
@@ -37,7 +40,7 @@ export class CommentsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill comments description',
+						value: 'fill certificates description',
 					},
 					{
 						name: 'Label',
@@ -50,26 +53,30 @@ export class CommentsComponent {
 
 	config = {
 		create: () => {
-			this._form.modal<Freelancecomment>(this.form, {
+			this._form.modal<Freelancecertificate>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
-					this._sf.create(created as Freelancecomment);
+					if (this.courseId) {
+						(created as Freelancecertificate).course = this.courseId;
+					}
+
+					this._sf.create(created as Freelancecertificate);
 					close();
 				},
 			});
 		},
-		update: (doc: Freelancecomment) => {
+		update: (doc: Freelancecertificate) => {
 			this._form
-				.modal<Freelancecomment>(this.form, [], doc)
-				.then((updated: Freelancecomment) => {
+				.modal<Freelancecertificate>(this.form, [], doc)
+				.then((updated: Freelancecertificate) => {
 					this._core.copy(updated, doc);
 					this._sf.update(doc);
 				});
 		},
-		delete: (doc: Freelancecomment) => {
+		delete: (doc: Freelancecertificate) => {
 			this._alert.question({
 				text: this._translate.translate(
-					'Common.Are you sure you want to delete this Freelancecomment?'
+					'Common.Are you sure you want to delete this Freelancecertificate?'
 				),
 				buttons: [
 					{
@@ -87,22 +94,23 @@ export class CommentsComponent {
 		buttons: [
 			{
 				icon: 'cloud_download',
-				click: (doc: Freelancecomment) => {
-					this._form.modalUnique<Freelancecomment>('comments', 'url', doc);
+				click: (doc: Freelancecertificate) => {
+					this._form.modalUnique<Freelancecertificate>('certificates', 'url', doc);
 				},
 			},
 		],
 	};
 
-	get rows(): Freelancecomment[] {
-		return this._sf.freelancecomments;
+	get rows(): Freelancecertificate[] {
+		return this._sf.freelancecertificates;
 	}
 
 	constructor(
-		private _sf: FreelancecommentService,
+		private _sf: FreelancecertificateService,
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _router: Router
 	) {}
 }
