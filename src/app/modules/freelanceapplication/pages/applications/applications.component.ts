@@ -98,6 +98,12 @@ export class ApplicationsComponent {
 					this._form.modalUnique<Freelanceapplication>('applications', 'url', doc);
 				},
 			},
+			{
+				icon: 'record_voice_over',
+				hrefFunc: (doc: Freelanceapplication) => {
+					return '/interviews/' + doc._id;
+				},
+			},
 		],
 	};
 
