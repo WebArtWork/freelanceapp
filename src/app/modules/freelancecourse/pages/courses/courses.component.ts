@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
+	readonly certificateId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
 	
 	columns = ['name', 'description'];
 
@@ -60,6 +61,10 @@ export class CoursesComponent {
 						(created as Freelancecourse).startup = this.startupId;
 					}
 
+					if (this.certificateId) {
+						(created as Freelancecourse).certificate = this.certificateId;
+					}
+
 					this._sf.create(created as Freelancecourse);
 					close();
 				},
@@ -96,12 +101,6 @@ export class CoursesComponent {
 				icon: 'cloud_download',
 				click: (doc: Freelancecourse) => {
 					this._form.modalUnique<Freelancecourse>('courses', 'url', doc);
-				},
-			},
-			{
-				icon: 'verified',
-				hrefFunc: (doc: Freelancecourse) => {
-					return '/certificates/' + doc._id;
 				},
 			},
 		],

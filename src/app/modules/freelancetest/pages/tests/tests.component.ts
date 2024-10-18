@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class TestsComponent {
 	readonly startupId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
+	readonly certificateId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
 
 	columns = ['name', 'description'];
 
@@ -58,6 +59,10 @@ export class TestsComponent {
 				click: (created: unknown, close: () => void) => {
 					if (this.startupId) {
 						(created as Freelancetest).startup = this.startupId;
+					}
+
+					if (this.certificateId) {
+						(created as Freelancetest).certificate = this.certificateId;
 					}
 
 					this._sf.create(created as Freelancetest);

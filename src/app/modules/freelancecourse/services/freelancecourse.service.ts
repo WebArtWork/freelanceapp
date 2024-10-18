@@ -12,6 +12,7 @@ export interface Freelancecourse extends CrudDocument {
 	name: string;
 	description: string;
 	startup: string;
+	certificate: string;
 }
 
 @Injectable({

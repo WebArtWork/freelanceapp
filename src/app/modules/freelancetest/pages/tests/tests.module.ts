@@ -10,6 +10,9 @@ const routes: Routes = [{
 {
 	path: ':startup',
 	component: TestsComponent
+}, {
+	path: ':certificate',
+	component: TestsComponent
 }];
 
 @NgModule({

@@ -56,10 +56,6 @@ export class CertificatesComponent {
 			this._form.modal<Freelancecertificate>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
-					if (this.courseId) {
-						(created as Freelancecertificate).course = this.courseId;
-					}
-
 					this._sf.create(created as Freelancecertificate);
 					close();
 				},
@@ -88,6 +84,18 @@ export class CertificatesComponent {
 							this._sf.delete(doc);
 						},
 					},
+					{
+						icon: 'quiz',
+						hrefFunc: (doc: Freelancecertificate) => {
+							return '/courses/' + doc._id;
+						},
+					},
+					{
+						icon: 'menu_book',
+						hrefFunc: (doc: Freelancecertificate) => {
+							return '/tests/' + doc._id;
+						},
+					},
 				],
 			});
 		},
@@ -96,6 +104,18 @@ export class CertificatesComponent {
 				icon: 'cloud_download',
 				click: (doc: Freelancecertificate) => {
 					this._form.modalUnique<Freelancecertificate>('certificates', 'url', doc);
+				},
+			},
+			{
+				icon: 'menu_book',
+				hrefFunc: (doc: Freelancecertificate) => {
+					return '/courses/' + doc._id;
+				},
+			},
+			{
+				icon: 'quiz',
+				hrefFunc: (doc: Freelancecertificate) => {
+					return '/tests/' + doc._id;
 				},
 			},
 		],
