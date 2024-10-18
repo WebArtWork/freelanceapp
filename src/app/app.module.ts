@@ -110,6 +110,19 @@ const routes: Routes = [
 					)
 			},
 			{
+				path: 'interviews',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Interviews'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceinterview/pages/interviews/interviews.module').then(
+						(m) => m.InterviewsModule
+					)
+			},
+			{
 				path: 'courses',
 				canActivate: [MetaGuard],
 				data: {
