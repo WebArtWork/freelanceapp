@@ -48,6 +48,24 @@ export class ApplicationsComponent {
 					},
 				],
 			},
+			{
+				name: 'Select',
+				key: 'status',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill applications description',
+					},
+					{
+						name: 'Label',
+						value: 'Description',
+					},
+					{
+						name: 'Items',
+						value: ['New', 'Seen', 'Rejected', 'Interview', 'Accepted', 'Ended']
+					}
+				],
+			},
 		],
 	});
 
@@ -118,5 +136,5 @@ export class ApplicationsComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router
-	) {}
+	) { }
 }

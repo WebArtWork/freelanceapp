@@ -22,7 +22,7 @@ export class CoursesComponent {
 		components: [
 			{
 				name: 'Text',
-				key: 'name',
+				key: 'title',
 				focused: true,
 				fields: [
 					{
@@ -46,6 +46,20 @@ export class CoursesComponent {
 					{
 						name: 'Label',
 						value: 'Description',
+					},
+				],
+			},
+			{
+				name: 'Number',
+				key: 'expiration',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill courses expiration',
+					},
+					{
+						name: 'Label',
+						value: 'Expiration',
 					},
 				],
 			},

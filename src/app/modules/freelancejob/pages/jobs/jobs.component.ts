@@ -22,7 +22,7 @@ export class JobsComponent {
 		components: [
 			{
 				name: 'Text',
-				key: 'name',
+				key: 'title',
 				focused: true,
 				fields: [
 					{
@@ -46,6 +46,56 @@ export class JobsComponent {
 					{
 						name: 'Label',
 						value: 'Description',
+					},
+				],
+			},
+			{
+				name: 'Select',
+				key: 'status',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs description',
+					},
+					{
+						name: 'Label',
+						value: 'Description',
+					},
+					{
+						name: 'Items',
+						value: ['Fixed', 'Hourly', 'Weekly', 'Monthly']
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'status',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs description',
+					},
+					{
+						name: 'Label',
+						value: 'Description',
+					},
+					{
+						name: 'Items',
+						value: ['New', 'Junior', 'Mid', 'Senior']
+					}
+				],
+			},
+			{
+				name: 'Number',
+				key: 'salary',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs salary',
+					},
+					{
+						name: 'Label',
+						value: 'Salary',
 					},
 				],
 			},
