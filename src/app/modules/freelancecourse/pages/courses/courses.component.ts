@@ -21,9 +21,23 @@ export class CoursesComponent {
 		title: 'Courses',
 		components: [
 			{
+				name: 'Number',
+				key: 'cost',
+				focused: true,
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill courses cost',
+					},
+					{
+						name: 'Label',
+						value: 'Cost',
+					},
+				],
+			},
+			{
 				name: 'Text',
 				key: 'title',
-				focused: true,
 				fields: [
 					{
 						name: 'Placeholder',

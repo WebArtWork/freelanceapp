@@ -55,33 +55,15 @@ export class JobsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill jobs description',
+						value: 'fill jobs type',
 					},
 					{
 						name: 'Label',
-						value: 'Description',
+						value: 'Type',
 					},
 					{
 						name: 'Items',
 						value: ['Fixed', 'Hourly', 'Weekly', 'Monthly']
-					}
-				],
-			},
-			{
-				name: 'Select',
-				key: 'status',
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill jobs description',
-					},
-					{
-						name: 'Label',
-						value: 'Description',
-					},
-					{
-						name: 'Items',
-						value: ['New', 'Junior', 'Mid', 'Senior']
 					}
 				],
 			},
@@ -97,6 +79,24 @@ export class JobsComponent {
 						name: 'Label',
 						value: 'Salary',
 					},
+				],
+			},
+			{
+				name: 'Select',
+				key: 'experience',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs experience',
+					},
+					{
+						name: 'Label',
+						value: 'Experience',
+					},
+					{
+						name: 'Items',
+						value: ['New', 'Junior', 'Mid', 'Senior']
+					}
 				],
 			},
 		],

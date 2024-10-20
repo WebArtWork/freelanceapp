@@ -22,7 +22,7 @@ export class TestsComponent {
 		components: [
 			{
 				name: 'Text',
-				key: 'name',
+				key: 'title',
 				focused: true,
 				fields: [
 					{
@@ -46,6 +46,34 @@ export class TestsComponent {
 					{
 						name: 'Label',
 						value: 'Description',
+					},
+				],
+			},
+			{
+				name: 'Number',
+				key: 'cost',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill tests cost',
+					},
+					{
+						name: 'Label',
+						value: 'Cost',
+					},
+				],
+			},
+			{
+				name: 'Number',
+				key: 'duration',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill tests duration',
+					},
+					{
+						name: 'Label',
+						value: 'Duration',
 					},
 				],
 			},

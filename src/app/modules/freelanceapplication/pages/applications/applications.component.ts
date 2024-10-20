@@ -21,21 +21,6 @@ export class ApplicationsComponent {
 		components: [
 			{
 				name: 'Text',
-				key: 'name',
-				focused: true,
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill applications title',
-					},
-					{
-						name: 'Label',
-						value: 'Title',
-					},
-				],
-			},
-			{
-				name: 'Text',
 				key: 'description',
 				fields: [
 					{
@@ -54,11 +39,11 @@ export class ApplicationsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill applications description',
+						value: 'fill applications status',
 					},
 					{
 						name: 'Label',
-						value: 'Description',
+						value: 'Status',
 					},
 					{
 						name: 'Items',
