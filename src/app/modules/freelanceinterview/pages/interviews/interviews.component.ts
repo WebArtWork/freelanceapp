@@ -20,31 +20,53 @@ export class InterviewsComponent {
 		title: 'Interviews',
 		components: [
 			{
-				name: 'Text',
-				key: 'name',
+				name: 'Select',
+				key: 'type',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill interviews type',
+					},
+					{
+						name: 'Label',
+						value: 'Type',
+					},
+					{
+						name: 'Items',
+						value: ['Online', 'Phone', 'Office']
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'status',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill interviews status',
+					},
+					{
+						name: 'Label',
+						value: 'Status',
+					},
+					{
+						name: 'Items',
+						value: ['New', 'Planned', 'Canceled', 'Completed']
+					}
+				],
+			},
+			{
+				name: 'Number',
+				key: 'grade',
 				focused: true,
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill interviews title',
+						value: 'fill interviews grade',
 					},
 					{
 						name: 'Label',
-						value: 'Title',
-					},
-				],
-			},
-			{
-				name: 'Text',
-				key: 'description',
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill interviews description',
-					},
-					{
-						name: 'Label',
-						value: 'Description',
+						value: 'Grade',
 					},
 				],
 			},

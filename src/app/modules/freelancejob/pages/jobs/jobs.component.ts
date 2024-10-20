@@ -51,7 +51,7 @@ export class JobsComponent {
 			},
 			{
 				name: 'Select',
-				key: 'status',
+				key: 'type',
 				fields: [
 					{
 						name: 'Placeholder',
