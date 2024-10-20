@@ -20,31 +20,17 @@ export class CertificatesComponent {
 		title: 'Certificates',
 		components: [
 			{
-				name: 'Text',
-				key: 'name',
+				name: 'Number',
+				key: 'grade',
 				focused: true,
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill certificates title',
+						value: 'fill certificates grade',
 					},
 					{
 						name: 'Label',
-						value: 'Title',
-					},
-				],
-			},
-			{
-				name: 'Text',
-				key: 'description',
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill certificates description',
-					},
-					{
-						name: 'Label',
-						value: 'Description',
+						value: 'Grade',
 					},
 				],
 			},
