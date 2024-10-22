@@ -6,6 +6,7 @@ import { TranslateService } from 'src/app/core/modules/translate/translate.servi
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
 import { Freelanceapplication } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
+import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 
 @Component({
 	templateUrl: './jobs.component.html',
@@ -14,7 +15,7 @@ import { Freelanceapplication } from 'src/app/modules/freelanceapplication/servi
 export class JobsComponent {
 	readonly startupId = this._router.url.includes('/jobs/') ? this._router.url.replace('/jobs/', '') : '';
 
-	columns = ['name', 'description'];
+	columns = ['title', 'type', 'salary'];
 
 	form: FormInterface = this._form.getForm('jobs', {
 		formId: 'jobs',
@@ -47,6 +48,28 @@ export class JobsComponent {
 						name: 'Label',
 						value: 'Description',
 					},
+				],
+			},
+			{
+				name: 'Select',
+				key: 'skills',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs skills',
+					},
+					{
+						name: 'Label',
+						value: 'Skills',
+					},
+					{
+						name: 'Items',
+						value: this._fss.freelanceskills
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
 				],
 			},
 			{
@@ -170,6 +193,7 @@ export class JobsComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _fss: FreelanceskillService
 	) {}
 }
