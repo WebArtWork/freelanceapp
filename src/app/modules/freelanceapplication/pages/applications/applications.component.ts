@@ -5,6 +5,8 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
+import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 
 @Component({
 	templateUrl: './applications.component.html',
@@ -13,7 +15,7 @@ import { Router } from '@angular/router';
 export class ApplicationsComponent {
 	readonly jobId = this._router.url.includes('/applications/') ? this._router.url.replace('/applications/', '') : '';
 
-	columns = ['name', 'description'];
+	columns = ['description', 'status', 'skills'];
 
 	form: FormInterface = this._form.getForm('applications', {
 		formId: 'applications',
@@ -48,6 +50,50 @@ export class ApplicationsComponent {
 					{
 						name: 'Items',
 						value: ['New', 'Seen', 'Rejected', 'Interview', 'Accepted', 'Ended']
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'tests',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill applications tests',
+					},
+					{
+						name: 'Label',
+						value: 'Tests',
+					},
+					{
+						name: 'Items',
+						value: this._fts.freelancetests
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'skills',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill applications skills',
+					},
+					{
+						name: 'Label',
+						value: 'Skills',
+					},
+					{
+						name: 'Items',
+						value: this._fss.freelanceskills
+					},
+					{
+						name: 'Multiple',
+						value: true
 					}
 				],
 			},
@@ -120,6 +166,8 @@ export class ApplicationsComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _fts: FreelancetestService,
+		private _fss: FreelanceskillService
 	) { }
 }

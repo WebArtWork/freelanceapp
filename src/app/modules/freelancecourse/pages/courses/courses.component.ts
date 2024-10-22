@@ -5,6 +5,7 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { Freelanceskill, FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 
 @Component({
 	templateUrl: './courses.component.html',
@@ -14,7 +15,7 @@ export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
 	readonly certificateId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
 	
-	columns = ['name', 'description'];
+	columns = ['title', 'description', 'skills', 'expiration'];
 
 	form: FormInterface = this._form.getForm('courses', {
 		formId: 'courses',
@@ -61,6 +62,28 @@ export class CoursesComponent {
 						name: 'Label',
 						value: 'Description',
 					},
+				],
+			},
+			{
+				name: 'Select',
+				key: 'skills',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill applications skills',
+					},
+					{
+						name: 'Label',
+						value: 'Skills',
+					},
+					{
+						name: 'Items',
+						value: this._fss.freelanceskills
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
 				],
 			},
 			{
@@ -144,6 +167,7 @@ export class CoursesComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _fss: FreelanceskillService
 	) {}
 }
