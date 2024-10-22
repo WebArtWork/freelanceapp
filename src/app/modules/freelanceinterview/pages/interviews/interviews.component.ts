@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class InterviewsComponent {
 	readonly applicationId = this._router.url.includes('/interviews/') ? this._router.url.replace('/interviews/', '') : '';
 
-	columns = ['name', 'description'];
+	columns = ['type', 'status', 'grade'];
 
 	form: FormInterface = this._form.getForm('interviews', {
 		formId: 'interviews',
