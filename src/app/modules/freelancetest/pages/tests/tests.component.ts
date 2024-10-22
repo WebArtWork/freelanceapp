@@ -15,7 +15,7 @@ export class TestsComponent {
 	readonly startupId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
 	readonly certificateId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
 
-	columns = ['title', 'description', 'duration', 'skills'];
+	columns = ['title', 'description', 'duration'];
 
 	form: FormInterface = this._form.getForm('tests', {
 		formId: 'tests',

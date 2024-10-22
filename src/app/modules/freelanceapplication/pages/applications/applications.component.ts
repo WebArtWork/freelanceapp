@@ -15,7 +15,7 @@ import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/f
 export class ApplicationsComponent {
 	readonly jobId = this._router.url.includes('/applications/') ? this._router.url.replace('/applications/', '') : '';
 
-	columns = ['description', 'status', 'skills'];
+	columns = ['description', 'status'];
 
 	form: FormInterface = this._form.getForm('applications', {
 		formId: 'applications',
