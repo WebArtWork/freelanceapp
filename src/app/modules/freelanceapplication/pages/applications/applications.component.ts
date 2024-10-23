@@ -15,12 +15,26 @@ import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/f
 export class ApplicationsComponent {
 	readonly jobId = this._router.url.includes('/applications/') ? this._router.url.replace('/applications/', '') : '';
 
-	columns = ['description', 'status'];
+	columns = ['cover', 'description', 'status'];
 
 	form: FormInterface = this._form.getForm('applications', {
 		formId: 'applications',
 		title: 'Applications',
 		components: [
+			{
+				name: 'Text',
+				key: 'cover',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill applications cover',
+					},
+					{
+						name: 'Label',
+						value: 'Cover',
+					},
+				],
+			},
 			{
 				name: 'Text',
 				key: 'description',
@@ -72,6 +86,24 @@ export class ApplicationsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					}
+				],
+			},
+			{
+				name: 'Tags',
+				key: 'links',
+				fields: [
+					{
+						name: 'Button',
+						value: 'Add link',
+					},
+					{
+						name: 'Placeholder',
+						value: 'fill applications links',
+					},
+					{
+						name: 'Label',
+						value: 'Links',
 					}
 				],
 			},
