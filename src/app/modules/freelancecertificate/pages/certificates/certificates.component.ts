@@ -25,7 +25,7 @@ export class CertificatesComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill jobs granted',
+						value: 'fill certificates granted',
 					},
 					{
 						name: 'Label',
@@ -64,7 +64,7 @@ export class CertificatesComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill tests answer',
+						value: 'fill certificates answer',
 					},
 					{
 						name: 'Label',
@@ -82,7 +82,7 @@ export class CertificatesComponent {
 					},
 					{
 						name: 'Placeholder',
-						value: 'fill tests answers',
+						value: 'fill certificates answers',
 					},
 					{
 						name: 'Label',

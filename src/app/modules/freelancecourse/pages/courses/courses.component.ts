@@ -84,7 +84,7 @@ export class CoursesComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill applications skills',
+						value: 'fill courses skills',
 					},
 					{
 						name: 'Label',
@@ -110,7 +110,7 @@ export class CoursesComponent {
 					},
 					{
 						name: 'Placeholder',
-						value: 'fill applications materials',
+						value: 'fill courses materials',
 					},
 					{
 						name: 'Label',

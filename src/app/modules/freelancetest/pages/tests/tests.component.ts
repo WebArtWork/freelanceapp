@@ -84,7 +84,7 @@ export class TestsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill applications skills',
+						value: 'fill tests skills',
 					},
 					{
 						name: 'Label',

@@ -20,6 +20,20 @@ export class InterviewsComponent {
 		title: 'Interviews',
 		components: [
 			{
+				name: 'Date',
+				key: 'date',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill interviews date',
+					},
+					{
+						name: 'Label',
+						value: 'Date',
+					},
+				],
+			},
+			{
 				name: 'Select',
 				key: 'type',
 				fields: [
@@ -38,6 +52,20 @@ export class InterviewsComponent {
 				],
 			},
 			{
+				name: 'Text',
+				key: 'link',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill interviews link',
+					},
+					{
+						name: 'Label',
+						value: 'Link',
+					},
+				],
+			},
+			{
 				name: 'Select',
 				key: 'status',
 				fields: [
@@ -53,6 +81,16 @@ export class InterviewsComponent {
 						name: 'Items',
 						value: ['New', 'Planned', 'Canceled', 'Completed']
 					}
+				],
+			},
+			{
+				name: 'Boolean',
+				key: 'isApproved',
+				fields: [
+					{
+						name: 'Label',
+						value: 'Is Approved',
+					},
 				],
 			},
 			{
