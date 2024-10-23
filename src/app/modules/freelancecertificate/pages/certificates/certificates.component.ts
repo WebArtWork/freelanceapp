@@ -13,12 +13,26 @@ import { Router } from '@angular/router';
 export class CertificatesComponent {
 	readonly courseId = this._router.url.includes('/certificates/') ? this._router.url.replace('/certificates/', '') : '';
 
-	columns = ['grade', 'description'];
+	columns = ['grade', 'description', 'isCompleted', 'answer'];
 
 	form: FormInterface = this._form.getForm('certificates', {
 		formId: 'certificates',
 		title: 'Certificates',
 		components: [
+			{
+				name: 'Date',
+				key: 'granted',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs granted',
+					},
+					{
+						name: 'Label',
+						value: 'Granted',
+					},
+				],
+			},
 			{
 				name: 'Number',
 				key: 'grade',
@@ -32,6 +46,48 @@ export class CertificatesComponent {
 						name: 'Label',
 						value: 'Grade',
 					},
+				],
+			},
+			{
+				name: 'Boolean',
+				key: 'isCompleted',
+				fields: [
+					{
+						name: 'Label',
+						value: 'Is Completed',
+					},
+				],
+			},
+			{
+				name: 'Text',
+				key: 'answer',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill tests answer',
+					},
+					{
+						name: 'Label',
+						value: 'Answer',
+					},
+				],
+			},
+			{
+				name: 'Tags',
+				key: 'answers',
+				fields: [
+					{
+						name: 'Button',
+						value: 'Add answer',
+					},
+					{
+						name: 'Placeholder',
+						value: 'fill tests answers',
+					},
+					{
+						name: 'Label',
+						value: 'Answers',
+					}
 				],
 			},
 		],
