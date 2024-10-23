@@ -164,7 +164,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'jobs',
+				path: 'manage/jobs',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -177,7 +177,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'applications',
+				path: 'manage/applications',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -190,7 +190,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'interviews',
+				path: 'manage/interviews',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -203,7 +203,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'courses',
+				path: 'manage/courses',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -216,7 +216,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'certificates',
+				path: 'manage/certificates',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -229,7 +229,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'skills',
+				path: 'manage/skills',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -242,7 +242,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'startups',
+				path: 'manage/startups',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
@@ -255,7 +255,7 @@ const routes: Routes = [
 					)
 			},
 			{
-				path: 'tests',
+				path: 'manage/tests',
 				canActivate: [MetaGuard],
 				data: {
 					meta: {
