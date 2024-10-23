@@ -105,6 +105,20 @@ export class JobsComponent {
 				],
 			},
 			{
+				name: 'Text',
+				key: 'locations',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs locations',
+					},
+					{
+						name: 'Label',
+						value: 'Locations',
+					},
+				],
+			},
+			{
 				name: 'Select',
 				key: 'experience',
 				fields: [
@@ -120,6 +134,20 @@ export class JobsComponent {
 						name: 'Items',
 						value: ['New', 'Junior', 'Mid', 'Senior']
 					}
+				],
+			},
+			{
+				name: 'Date',
+				key: 'deadline',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs deadline',
+					},
+					{
+						name: 'Label',
+						value: 'Deadline',
+					},
 				],
 			},
 		],
