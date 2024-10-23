@@ -71,6 +71,86 @@ const routes: Routes = [
 		children: [
 			/* user */
 			{
+				path: 'interviews',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Interviews'
+					}
+				},
+				loadChildren: () => import('./pages/user/interviews/interviews.module').then(m => m.InterviewsModule)
+			}, 
+			{
+				path: 'test',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Test'
+					}
+				},
+				loadChildren: () => import('./pages/user/test/test.module').then(m => m.TestModule)
+			}, 
+			{
+				path: 'tests',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Tests'
+					}
+				},
+				loadChildren: () => import('./pages/user/tests/tests.module').then(m => m.TestsModule)
+			}, 
+			{
+				path: 'course',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Course'
+					}
+				},
+				loadChildren: () => import('./pages/user/course/course.module').then(m => m.CourseModule)
+			}, 
+			{
+				path: 'courses',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Courses'
+					}
+				},
+				loadChildren: () => import('./pages/user/courses/courses.module').then(m => m.CoursesModule)
+			}, 
+			{
+				path: 'certificate',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Certificate'
+					}
+				},
+				loadChildren: () => import('./pages/user/certificate/certificate.module').then(m => m.CertificateModule)
+			}, 
+			{
+				path: 'job',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Job'
+					}
+				},
+				loadChildren: () => import('./pages/user/job/job.module').then(m => m.JobModule)
+			}, 
+			{
+				path: 'jobs',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Jobs'
+					}
+				},
+				loadChildren: () => import('./pages/user/jobs/jobs.module').then(m => m.JobsModule)
+			}, 
+			{
 				path: 'profile',
 				canActivate: [MetaGuard],
 				data: {
