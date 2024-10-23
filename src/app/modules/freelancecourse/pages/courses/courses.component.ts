@@ -15,7 +15,7 @@ export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
 	readonly certificateId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
 	
-	columns = ['title', 'description', 'expiration'];
+	columns = ['title', 'description', 'duration', 'expiration'];
 
 	form: FormInterface = this._form.getForm('courses', {
 		formId: 'courses',
@@ -65,6 +65,20 @@ export class CoursesComponent {
 				],
 			},
 			{
+				name: 'Text',
+				key: 'duration',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill courses duration',
+					},
+					{
+						name: 'Label',
+						value: 'Duration',
+					},
+				],
+			},
+			{
 				name: 'Select',
 				key: 'skills',
 				fields: [
@@ -83,6 +97,24 @@ export class CoursesComponent {
 					{
 						name: 'Multiple',
 						value: true
+					}
+				],
+			},
+			{
+				name: 'Tags',
+				key: 'materials',
+				fields: [
+					{
+						name: 'Button',
+						value: 'Add material',
+					},
+					{
+						name: 'Placeholder',
+						value: 'fill applications materials',
+					},
+					{
+						name: 'Label',
+						value: 'Materials',
 					}
 				],
 			},
