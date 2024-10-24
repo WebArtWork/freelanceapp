@@ -8,7 +8,7 @@ import { Freelancecourse, FreelancecourseService } from 'src/app/modules/freelan
 export class CourseComponent {
 	course: Freelancecourse = this._fcs.doc(this._router.url.replace('/course/', ''));
 
-	constructor (
+	constructor(
 		private _fcs: FreelancecourseService,
 		private _router: Router
 	) { }

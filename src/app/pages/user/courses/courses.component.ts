@@ -5,7 +5,7 @@ import { FreelancecourseService } from 'src/app/modules/freelancecourse/services
 	styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent {
-	constructor (
+	constructor(
 		public fcs: FreelancecourseService
 	) { }
 }

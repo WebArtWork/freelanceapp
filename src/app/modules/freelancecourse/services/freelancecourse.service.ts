@@ -12,7 +12,7 @@ export interface Freelancecourse extends CrudDocument {
 	cost: number;
 	title: string;
 	description: string;
-	duration: string;
+	duration: number;
 	skills: string[];
 	materials: string[];
 	expiration: number;
