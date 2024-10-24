@@ -9,7 +9,7 @@ import {
 } from 'wacom';
 
 export interface Freelancejob extends CrudDocument {
-	name: string;
+	title: string;
 	description: string;
 	startup: string;
 }
@@ -19,6 +19,7 @@ export interface Freelancejob extends CrudDocument {
 })
 export class FreelancejobService extends CrudService<Freelancejob> {
 	freelancejobs: Freelancejob[] = [];
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
