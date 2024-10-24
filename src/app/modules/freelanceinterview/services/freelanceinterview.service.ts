@@ -15,6 +15,7 @@ export interface Freelanceinterview extends CrudDocument {
 	status: 'New' | 'Planned' | 'Canceled' | 'Completed';
 	isApproved: boolean;
 	grade: number;
+	application: string;
 }
 
 @Injectable({

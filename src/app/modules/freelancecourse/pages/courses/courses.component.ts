@@ -65,7 +65,7 @@ export class CoursesComponent {
 				],
 			},
 			{
-				name: 'Text',
+				name: 'Number',
 				key: 'duration',
 				fields: [
 					{

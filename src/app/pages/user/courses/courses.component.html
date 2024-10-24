@@ -1,1 +1,10 @@
-<p>Page Courses is connected</p>
+<h3>Show object in html</h3>
+{{fcs.freelancecourses|json}}
+
+<h3>In case of array, show object of each array element</h3>
+<div *ngFor="let course of fcs.freelancecourses">{{course|json}}</div>
+
+<h3>Proper management of job rows</h3>
+<div *ngFor="let course of fcs.freelancecourses" routerLink="/course/{{course._id}}">
+	<h3>{{course.title}}</h3>
+</div>
