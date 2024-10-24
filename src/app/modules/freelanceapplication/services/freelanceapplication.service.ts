@@ -9,8 +9,12 @@ import {
 } from 'wacom';
 
 export interface Freelanceapplication extends CrudDocument {
-	name: string;
+	cover: string;
 	description: string;
+	status: 'New' | 'Seen' | 'Rejected' | 'Interview' | 'Accepted' | 'Ended';
+	tests: string[];
+	links: string[];
+	skills: string[];
 	job: string;
 }
 

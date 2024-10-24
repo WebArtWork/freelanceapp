@@ -9,8 +9,11 @@ import {
 } from 'wacom';
 
 export interface Freelancecertificate extends CrudDocument {
-	name: string;
-	description: string;
+	granted: Date;
+	grade: number;
+	isCompleted: boolean;
+	answer: string;
+	answers: string[];
 }
 
 @Injectable({

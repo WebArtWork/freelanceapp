@@ -9,9 +9,12 @@ import {
 } from 'wacom';
 
 export interface Freelanceinterview extends CrudDocument {
-	name: string;
-	description: string;
-	application: string;
+	date: Date;
+	type: 'Online' | 'Phone' | 'Office';
+	links: string;
+	status: 'New' | 'Planned' | 'Canceled' | 'Completed';
+	isApproved: boolean;
+	grade: number;
 }
 
 @Injectable({

@@ -9,8 +9,13 @@ import {
 } from 'wacom';
 
 export interface Freelancecourse extends CrudDocument {
-	name: string;
+	cost: number;
+	title: string;
 	description: string;
+	duration: string;
+	skills: string[];
+	materials: string[];
+	expiration: number;
 	startup: string;
 	certificate: string;
 }

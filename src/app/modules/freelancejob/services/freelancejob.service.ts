@@ -11,6 +11,12 @@ import {
 export interface Freelancejob extends CrudDocument {
 	title: string;
 	description: string;
+	skills: string[];
+	type: 'Fixed' | 'Hourly' | 'Weekly' | 'Monthly';
+	salary: number;
+	location: string;
+	experience: 'New' | 'Junior' | 'Mid' | 'Senior';
+	deadline: Date;
 	startup: string;
 }
 
