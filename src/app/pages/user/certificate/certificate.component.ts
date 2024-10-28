@@ -7,7 +7,7 @@ import { Freelancecertificate, FreelancecertificateService } from 'src/app/modul
 })
 export class CertificateComponent {
 	course: Freelancecertificate = this._fcs.doc(this._router.url.replace('/certificate/', ''));
-certificate: any;
+	certificate: any;
 
 	constructor(
 		private _fcs: FreelancecertificateService,

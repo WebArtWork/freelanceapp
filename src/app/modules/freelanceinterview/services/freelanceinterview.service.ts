@@ -11,7 +11,7 @@ import {
 export interface Freelanceinterview extends CrudDocument {
 	date: Date;
 	type: 'Online' | 'Phone' | 'Office';
-	links: string;
+	link: string;
 	status: 'New' | 'Planned' | 'Canceled' | 'Completed';
 	isApproved: boolean;
 	grade: number;

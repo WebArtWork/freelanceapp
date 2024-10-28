@@ -11,6 +11,9 @@ import {
 export interface Freelancestartup extends CrudDocument {
 	name: string;
 	description: string;
+	currency: string;
+	socials: string[];
+	pitchDeck: string;
 }
 
 @Injectable({

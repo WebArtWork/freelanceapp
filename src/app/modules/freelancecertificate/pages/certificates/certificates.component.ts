@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class CertificatesComponent {
 	readonly courseId = this._router.url.includes('/certificates/') ? this._router.url.replace('/certificates/', '') : '';
 
-	columns = ['grade', 'description', 'isCompleted', 'answer'];
+	columns = ['granted', 'grade', 'isCompleted', 'answer'];
 
 	form: FormInterface = this._form.getForm('certificates', {
 		formId: 'certificates',

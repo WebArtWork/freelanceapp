@@ -10,7 +10,7 @@ import {
 
 export interface Freelanceskill extends CrudDocument {
 	name: string;
-	description: string;
+	website: string;
 }
 
 @Injectable({
