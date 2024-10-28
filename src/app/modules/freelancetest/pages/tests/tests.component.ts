@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { AlertService, CoreService } from 'wacom';
+import { AlertService, CoreService, ModalService } from 'wacom';
 import { FreelancetestService, Freelancetest } from '../../services/freelancetest.service';
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
+import { TestQuestionsComponent } from './test-questions/test-questions.component';
 
 @Component({
 	templateUrl: './tests.component.html',
@@ -154,6 +155,16 @@ export class TestsComponent {
 					this._form.modalUnique<Freelancetest>('tests', 'url', doc);
 				},
 			},
+			{
+				icon: 'cloud_download',
+				click: (test: Freelancetest) => {
+					test.questions = test.questions || [];
+					this._modal.show({
+						component: TestQuestionsComponent,
+						test
+					});
+				},
+			},
 		],
 	};
 
@@ -168,6 +179,7 @@ export class TestsComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router,
-		private _fss: FreelanceskillService
+		private _fss: FreelanceskillService,
+		private _modal: ModalService
 	) { }
 }

@@ -8,6 +8,13 @@ import {
 	CrudDocument,
 } from 'wacom';
 
+interface Freelancetestquestion {
+	text: string;
+	type: 'Text' | 'Radio' | 'Checkbox' | 'ArrayTexts' | 'TwoArrayConnects',
+	answers: string[];
+	connectTo: string[];
+}
+
 export interface Freelancetest extends CrudDocument {
 	title: string;
 	description: string;
@@ -16,6 +23,7 @@ export interface Freelancetest extends CrudDocument {
 	skills: string[];
 	startup: string;
 	certificate: string;
+	questions: Freelancetestquestion[];
 }
 
 @Injectable({
