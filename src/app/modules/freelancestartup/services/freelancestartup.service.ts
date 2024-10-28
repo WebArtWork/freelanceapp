@@ -12,6 +12,10 @@ export interface Freelancestartup extends CrudDocument {
 	name: string;
 	description: string;
 	currency: string;
+	industry: string[];
+	stage: string[];
+	stakeholders: string[];
+	competetives: string[];
 	socials: string[];
 	pitchDeck: string;
 }

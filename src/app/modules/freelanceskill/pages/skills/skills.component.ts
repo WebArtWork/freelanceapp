@@ -10,7 +10,7 @@ import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interfa
 	styleUrls: ['./skills.component.scss'],
 })
 export class SkillsComponent {
-	columns = ['name', 'description'];
+	columns = ['name', 'website'];
 
 	form: FormInterface = this._form.getForm('skills', {
 		formId: 'skills',
@@ -33,15 +33,15 @@ export class SkillsComponent {
 			},
 			{
 				name: 'Text',
-				key: 'description',
+				key: 'website',
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill skills description',
+						value: 'fill skills website',
 					},
 					{
 						name: 'Label',
-						value: 'Description',
+						value: 'Website',
 					},
 				],
 			},

@@ -46,6 +46,34 @@ export class StartupsComponent {
 					},
 				],
 			},
+			{
+				name: 'Text',
+				key: 'currency',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill startups currency',
+					},
+					{
+						name: 'Label',
+						value: 'Currency',
+					},
+				],
+			},
+			{
+				name: 'Text',
+				key: 'pitchDeck',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill startups pitchDeck',
+					},
+					{
+						name: 'Label',
+						value: 'PitchDeck',
+					},
+				],
+			},
 		],
 	});
 

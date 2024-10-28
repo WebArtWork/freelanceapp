@@ -11,6 +11,8 @@ import {
 export interface Freelanceskill extends CrudDocument {
 	name: string;
 	website: string;
+	courses: string[];
+	tests: string[];
 }
 
 @Injectable({
