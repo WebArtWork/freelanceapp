@@ -5,6 +5,14 @@
 <div *ngFor="let job of fjs.freelancejobs">{{job|json}}</div>
 
 <h3>Proper management of job rows</h3>
-<div *ngFor="let job of fjs.freelancejobs" routerLink="/job/{{job._id}}">
+<div class="wrapper" *ngFor="let job of fjs.freelancejobs" routerLink="/job/{{job._id}}">
 	<h3>{{job.title}}</h3>
+	<p>{{job.type}} - {{job.experience}}</p>
+	<p><strong>Description:</strong> {{job.description}}</p>
+	<p class="skills">{{job.skills}}</p>
+	<div class="badge-line">
+		<span>Salary: {{job.salary}}</span>
+		<span>Location: {{job.location}}</span>
+		<span>Deadline: {{job.deadline | date}}</span>
+	</div>
 </div>

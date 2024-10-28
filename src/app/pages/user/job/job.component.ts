@@ -9,5 +9,9 @@ import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/
 export class JobComponent {
 	job: Freelancejob = this._fjs.doc(this._router.url.replace('/job/', ''));
 
-	constructor(private _fjs: FreelancejobService, private _router: Router, private _fas: FreelanceapplicationService) {}
+	constructor(
+		private _fjs: FreelancejobService, 
+		private _router: Router, 
+		private _fas: FreelanceapplicationService
+	) { }
 }
