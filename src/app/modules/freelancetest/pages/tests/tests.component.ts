@@ -156,7 +156,7 @@ export class TestsComponent {
 				},
 			},
 			{
-				icon: 'cloud_download',
+				icon: 'fact_check',
 				click: (test: Freelancetest) => {
 					test.questions = test.questions || [];
 					this._modal.show({

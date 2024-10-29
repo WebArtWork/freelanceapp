@@ -8,7 +8,7 @@ import {
 	CrudDocument,
 } from 'wacom';
 
-interface Freelancetestquestion {
+export interface Freelancetestquestion {
 	text: string;
 	type: 'Text' | 'Radio' | 'Checkbox' | 'ArrayTexts' | 'TwoArrayConnects',
 	answers: string[];

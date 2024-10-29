@@ -1,2 +1,12 @@
 <p>test-questions works!</p>
 {{test|json}}
+
+<div *ngFor="let question of questions; index as i;">
+
+<button (click)='questionIndex = i;'>Add question</button>
+
+<wform (wChange)="update()" [submition]="question" *ngIf='questionIndex === i'></wform>
+
+</div>
+
+<wbutton (click)="addQuestion()">Add question</wbutton>
