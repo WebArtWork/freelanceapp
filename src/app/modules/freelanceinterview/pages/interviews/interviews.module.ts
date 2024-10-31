@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from 'src/app/core/core.module';
 import { InterviewsComponent } from './interviews.component';
 import { Routes, RouterModule } from '@angular/router';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
 
 const routes: Routes = [{
 	path: '',
@@ -17,7 +18,8 @@ const routes: Routes = [{
 		CoreModule
 	],
 	declarations: [
-		InterviewsComponent
+		InterviewsComponent,
+  InterviewFeedbackComponent
 	],
 	providers: []
 
