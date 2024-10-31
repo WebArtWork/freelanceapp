@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Freelanceinterview } from '../../../services/freelanceinterview.service';
 
 @Component({
   selector: 'app-interview-feedback',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './interview-feedback.component.scss'
 })
 export class InterviewFeedbackComponent {
+interview: Freelanceinterview;
 
 }

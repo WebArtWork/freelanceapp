@@ -8,6 +8,12 @@ import {
 	CrudDocument,
 } from 'wacom';
 
+export interface Freelanceinterviewfeedback {
+	author: string;
+	isApprouved: boolean;
+	grade: number;
+}
+
 export interface Freelanceinterview extends CrudDocument {
 	date: Date;
 	type: 'Online' | 'Phone' | 'Office';
@@ -16,6 +22,7 @@ export interface Freelanceinterview extends CrudDocument {
 	isApproved: boolean;
 	grade: number;
 	application: string;
+	feedback: Freelanceinterviewfeedback[];
 }
 
 @Injectable({

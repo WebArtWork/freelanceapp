@@ -5,6 +5,8 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
+import { ModalService } from 'src/app/core/modules/modal/modal.service';
 
 @Component({
 	templateUrl: './interviews.component.html',
@@ -158,6 +160,16 @@ export class InterviewsComponent {
 					this._form.modalUnique<Freelanceinterview>('interviews', 'url', doc);
 				},
 			},
+			{
+				icon: 'question_answer',
+				click: (interview: Freelanceinterview) => {
+					interview.feedback = interview.feedback || [];
+					this._modal.show({
+						component: InterviewFeedbackComponent,
+						interview
+					});
+				},
+			},
 		],
 	};
 
@@ -171,6 +183,7 @@ export class InterviewsComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _modal: ModalService
 	) {}
 }
