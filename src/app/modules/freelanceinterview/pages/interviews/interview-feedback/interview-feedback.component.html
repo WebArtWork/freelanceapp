@@ -1,3 +1,10 @@
-<p>interview-feedback works!</p>
+<div *ngFor="let interview of interviews; index as i;">
 
-{{interview|json}}
+    <wbutton (click)='interviewIndex = i;'>Edit interview</wbutton>
+
+    <wform (wChange)="update()" [submition]="interview" *ngIf='interviewIndex === i' [config]='form'></wform>
+
+    <wbutton (click)="interviews.splice(i, 1); update()">Remove interview</wbutton>
+</div>
+
+<wbutton (click)="addInterview()">Add interview</wbutton>
