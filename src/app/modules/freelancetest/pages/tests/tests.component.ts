@@ -13,8 +13,8 @@ import { TestQuestionsComponent } from './test-questions/test-questions.componen
 	styleUrls: ['./tests.component.scss'],
 })
 export class TestsComponent {
-	readonly startupId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
-	readonly certificateId = this._router.url.includes('/tests/') ? this._router.url.replace('/tests/', '') : '';
+	readonly startupId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
+	readonly certificateId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
 
 	columns = ['title', 'description', 'duration'];
 

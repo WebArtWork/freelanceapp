@@ -12,8 +12,8 @@ import { Freelanceskill, FreelanceskillService } from 'src/app/modules/freelance
 	styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent {
-	readonly startupId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
-	readonly certificateId = this._router.url.includes('/courses/') ? this._router.url.replace('/courses/', '') : '';
+	readonly startupId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
+	readonly certificateId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
 	
 	columns = ['title', 'description', 'duration', 'expiration'];
 

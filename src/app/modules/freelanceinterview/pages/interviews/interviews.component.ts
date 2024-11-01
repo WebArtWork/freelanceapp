@@ -13,7 +13,7 @@ import { ModalService } from 'src/app/core/modules/modal/modal.service';
 	styleUrls: ['./interviews.component.scss'],
 })
 export class InterviewsComponent {
-	readonly applicationId = this._router.url.includes('/interviews/') ? this._router.url.replace('/interviews/', '') : '';
+	readonly applicationId = this._router.url.includes('/manage/interviews/') ? this._router.url.replace('/manage/interviews/', '') : '';
 
 	columns = ['date', 'type', 'status', 'grade'];
 

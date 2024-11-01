@@ -13,7 +13,7 @@ import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/f
 	styleUrls: ['./jobs.component.scss'],
 })
 export class JobsComponent {
-	readonly startupId = this._router.url.includes('/jobs/') ? this._router.url.replace('/jobs/', '') : '';
+	readonly startupId = this._router.url.includes('/manage/jobs/') ? this._router.url.replace('/manage/jobs/', '') : '';
 
 	columns = ['title', 'type', 'salary', 'experience'];
 

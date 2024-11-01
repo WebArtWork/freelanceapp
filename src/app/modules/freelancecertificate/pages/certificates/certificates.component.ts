@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 	styleUrls: ['./certificates.component.scss'],
 })
 export class CertificatesComponent {
-	readonly courseId = this._router.url.includes('/certificates/') ? this._router.url.replace('/certificates/', '') : '';
+	readonly courseId = this._router.url.includes('/manage/certificates/') ? this._router.url.replace('/manage/certificates/', '') : '';
 
 	columns = ['granted', 'grade', 'isCompleted', 'answer'];
 
