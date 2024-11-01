@@ -21,6 +21,7 @@ export interface Freelancecertificate extends CrudDocument {
 })
 export class FreelancecertificateService extends CrudService<Freelancecertificate> {
 	freelancecertificates: Freelancecertificate[] = [];
+	certificatesByJob: Record<string, Freelancecertificate[]> = {};
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
