@@ -1,10 +1,7 @@
-<h3>Show object in html</h3>
-{{fjs.freelancejobs|json}}
-
 <h3>In case of array, show object of each array element</h3>
 <div *ngFor="let job of fjs.freelancejobs">{{job|json}}</div>
 
-<h3>Proper management of job rows</h3>
+<h3>Jobs</h3>
 <div class="wrapper" *ngFor="let job of fjs.freelancejobs" routerLink="/job/{{job._id}}">
 	<h3>{{job.title}}</h3>
 	<p>{{job.type}} - {{job.experience}}</p>

@@ -6,5 +6,7 @@ import { FreelancejobService } from 'src/app/modules/freelancejob/services/freel
 	styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent {
-	constructor(public fjs: FreelancejobService) { }
+	constructor(
+		public fjs: FreelancejobService
+	) { }
 }

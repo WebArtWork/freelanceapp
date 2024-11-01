@@ -182,7 +182,7 @@ export class ApplicationsComponent {
 			{
 				icon: 'record_voice_over',
 				hrefFunc: (doc: Freelanceapplication) => {
-					return '/interviews/' + doc._id;
+					return '/manage/interviews/' + doc._id;
 				},
 			},
 		],

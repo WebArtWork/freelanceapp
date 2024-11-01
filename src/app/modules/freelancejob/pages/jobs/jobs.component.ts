@@ -205,7 +205,7 @@ export class JobsComponent {
 			{
 				icon: 'description',
 				hrefFunc: (doc: Freelancejob) => {
-					return '/applications/' + doc._id;
+					return '/manage/applications/' + doc._id;
 				},
 			},
 		],

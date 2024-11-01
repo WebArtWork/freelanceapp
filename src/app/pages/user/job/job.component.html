@@ -1,11 +1,33 @@
 {{job|json}}
+{{applications|json}}
 
 <h1>{{job.title}}</h1>
 
 <!-- static code -->
-<h3>Applications</h3>
+<h3>Job</h3>
 
 <div>
-	<h2>Honchar Denys</h2>
-	<p>Hello, my name is Denys</p>
+	<h2>{{job.title}}</h2>
+	<p>{{job.description}}</p>
+	<p>{{job.skills}}</p>
+	<p>{{job.type}}</p>
+	<p>{{job.salary}}</p>
+	<p>{{job.location}}</p>
+	<p>{{job.experience}}</p>
+	<p>{{job.deadline}}</p>
+	<p>{{job.startup}}</p>
 </div>
+
+<h3>Applications</h3>
+
+<div *ngFor="let application of applications">
+	<h2>{{application.cover}}</h2>
+	<p>{{application.description}}</p>
+	<p>{{application.status}}</p>
+	<p>{{application.tests}}</p>
+	<p>{{application.links}}</p>
+	<p>{{application.skills}}</p>
+	<p>{{application.job}}</p>
+</div>
+
+

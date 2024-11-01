@@ -123,19 +123,19 @@ export class StartupsComponent {
 			{
 				icon: 'work',
 				hrefFunc: (doc: Freelancestartup) => {
-					return '/jobs/' + doc._id;
+					return '/manage/jobs/' + doc._id;
 				},
 			},
 			{
 				icon: 'menu_book',
 				hrefFunc: (doc: Freelancestartup) => {
-					return '/courses/' + doc._id;
+					return '/manage/courses/' + doc._id;
 				},
 			},
 			{
 				icon: 'quiz',
 				hrefFunc: (doc: Freelancestartup) => {
-					return '/tests/' + doc._id;
+					return '/manage/tests/' + doc._id;
 				},
 			},
 		],

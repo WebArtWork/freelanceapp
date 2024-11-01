@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FreelanceapplicationService } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
+import { Freelanceapplication, FreelanceapplicationService } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
 import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/services/freelancejob.service';
 @Component({
 	templateUrl: './job.component.html',
@@ -9,9 +9,13 @@ import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/
 export class JobComponent {
 	job: Freelancejob = this._fjs.doc(this._router.url.replace('/job/', ''));
 
+	get applications(): Freelanceapplication[] {
+		return this._fas.applicationsByJob[this.job._id];
+	}
+
 	constructor(
-		private _fjs: FreelancejobService, 
-		private _router: Router, 
+		private _fjs: FreelancejobService,
+		private _router: Router,
 		private _fas: FreelanceapplicationService
 	) { }
 }

@@ -23,6 +23,7 @@ export interface Freelanceapplication extends CrudDocument {
 })
 export class FreelanceapplicationService extends CrudService<Freelanceapplication> {
 	freelanceapplications: Freelanceapplication[] = [];
+	applicationsByJob: Record<string, Freelanceapplication[]> = {};
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -51,5 +52,6 @@ export class FreelanceapplicationService extends CrudService<Freelanceapplicatio
 				1
 			);
 		});
+		this.filteredDocuments(this.applicationsByJob, 'job');
 	}
 }

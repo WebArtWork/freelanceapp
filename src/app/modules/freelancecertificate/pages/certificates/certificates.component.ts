@@ -151,13 +151,13 @@ export class CertificatesComponent {
 			{
 				icon: 'menu_book',
 				hrefFunc: (doc: Freelancecertificate) => {
-					return '/courses/' + doc._id;
+					return '/manage/courses/' + doc._id;
 				},
 			},
 			{
 				icon: 'quiz',
 				hrefFunc: (doc: Freelancecertificate) => {
-					return '/tests/' + doc._id;
+					return '/manage/tests/' + doc._id;
 				},
 			},
 		],
