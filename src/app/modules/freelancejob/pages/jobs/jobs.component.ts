@@ -208,6 +208,12 @@ export class JobsComponent {
 					return '/manage/applications/' + doc._id;
 				},
 			},
+			{
+				icon: 'verified',
+				hrefFunc: (doc: Freelancejob) => {
+					return '/manage/certificates/' + doc._id;
+				},
+			},
 		],
 	};
 

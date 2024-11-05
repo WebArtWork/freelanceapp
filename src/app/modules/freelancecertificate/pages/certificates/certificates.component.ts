@@ -174,5 +174,5 @@ export class CertificatesComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router
-	) {}
+	) { }
 }

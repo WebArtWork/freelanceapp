@@ -50,5 +50,6 @@ export class FreelancecertificateService extends CrudService<Freelancecertificat
 				1
 			);
 		});
+		this.filteredDocuments(this.certificatesByJob, 'job');
 	}
 }
