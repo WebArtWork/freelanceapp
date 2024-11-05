@@ -110,7 +110,7 @@ export class CertificatesComponent {
 					if (this.testId) {
 						(created as Freelancejob).tests = this.testId
 					}
-					
+
 					this._sf.create(created as Freelancecertificate);
 					close();
 				},
@@ -177,7 +177,11 @@ export class CertificatesComponent {
 	};
 
 	get rows(): Freelancecertificate[] {
-		return this._sf.freelancecertificates;
+		return this.courseId
+			? this._sf.certificatesByCourse[this.courseId]
+			: this.testId
+				? this._sf.certificatesByTest[this.testId]
+				: this._sf.freelancecertificates;
 	}
 
 	constructor(

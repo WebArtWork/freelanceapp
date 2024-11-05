@@ -21,7 +21,11 @@ export interface Freelancecertificate extends CrudDocument {
 })
 export class FreelancecertificateService extends CrudService<Freelancecertificate> {
 	freelancecertificates: Freelancecertificate[] = [];
-	certificatesByJob: Record<string, Freelancecertificate[]> = {};
+
+	certificatesByCourse: Record<string, Freelancecertificate[]> = {};
+
+	certificatesByTest: Record<string, Freelancecertificate[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -38,18 +42,10 @@ export class FreelancecertificateService extends CrudService<Freelancecertificat
 			_core
 		);
 
-		this.get().subscribe((freelancecertificates: Freelancecertificate[]) => this.freelancecertificates.push(...freelancecertificates));
+		this.get();
 
-		_core.on('freelancecertificate_create').subscribe((freelancecertificate: Freelancecertificate) => {
-			this.freelancecertificates.push(freelancecertificate);
-		});
+		this.filteredDocuments(this.certificatesByCourse, 'course');
 
-		_core.on('freelancecertificate_delete').subscribe((freelancecertificate: Freelancecertificate) => {
-			this.freelancecertificates.splice(
-				this.freelancecertificates.findIndex((o) => o._id === freelancecertificate._id),
-				1
-			);
-		});
-		this.filteredDocuments(this.certificatesByJob, 'job');
+		this.filteredDocuments(this.certificatesByTest, 'test');
 	}
 }

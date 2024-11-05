@@ -15,7 +15,8 @@ export class JobComponent {
 	}
 
 	get certificates(): Freelancecertificate[] {
-		return this._fcs.certificatesByJob[this.job._id];
+		return [];
+		// return this._fcs.certificatesByJob[this.job._id];
 	}
 
 	constructor(
