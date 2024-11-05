@@ -171,6 +171,12 @@ export class TestsComponent {
 					return '/manage/certificates/test/' + doc._id;
 				},
 			},
+			{
+				icon: 'menu_book',
+				hrefFunc: (doc: Freelancetest) => {
+					return '/manage/courses/' + doc._id;
+				},
+			},
 		],
 	};
 
