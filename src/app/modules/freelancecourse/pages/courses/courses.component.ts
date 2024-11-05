@@ -189,7 +189,7 @@ export class CoursesComponent {
 			{
 				icon: 'verified',
 				hrefFunc: (doc: Freelancecourse) => {
-					return '/manage/certificates/' + doc._id;
+					return '/manage/certificates/course/' + doc._id;
 				},
 			},
 		],
