@@ -95,50 +95,6 @@ export class CertificatesComponent {
 					}
 				],
 			},
-			{
-				name: 'Select',
-				key: 'course',
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill certificates course',
-					},
-					{
-						name: 'Label',
-						value: 'Course',
-					},
-					{
-						name: 'Items',
-						value: this._fcs.freelancecourses
-					},
-					{
-						name: 'Multiple',
-						value: true
-					}
-				],
-			},
-			{
-				name: 'Select',
-				key: 'test',
-				fields: [
-					{
-						name: 'Placeholder',
-						value: 'fill certificates test',
-					},
-					{
-						name: 'Label',
-						value: 'Test',
-					},
-					{
-						name: 'Items',
-						value: this._fts.freelancetests
-					},
-					{
-						name: 'Multiple',
-						value: true
-					}
-				],
-			},
 		],
 	});
 
@@ -230,8 +186,6 @@ export class CertificatesComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router,
-		private _fcs: FreelancecourseService,
-		private _fts: FreelancetestService
+		private _router: Router
 	) { }
 }

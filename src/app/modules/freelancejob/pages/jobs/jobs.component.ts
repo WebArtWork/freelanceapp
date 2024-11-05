@@ -7,6 +7,8 @@ import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interfa
 import { Router } from '@angular/router';
 import { Freelanceapplication } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
+import { FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
+import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 
 @Component({
 	templateUrl: './jobs.component.html',
@@ -150,6 +152,50 @@ export class JobsComponent {
 					},
 				],
 			},
+			{
+				name: 'Select',
+				key: 'course',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs course',
+					},
+					{
+						name: 'Label',
+						value: 'Course',
+					},
+					{
+						name: 'Items',
+						value: this._fcs.freelancecourses
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'test',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill jobs test',
+					},
+					{
+						name: 'Label',
+						value: 'Test',
+					},
+					{
+						name: 'Items',
+						value: this._fts.freelancetests
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
+				],
+			},
 		],
 	});
 
@@ -208,12 +254,6 @@ export class JobsComponent {
 					return '/manage/applications/' + doc._id;
 				},
 			},
-			{
-				icon: 'verified',
-				hrefFunc: (doc: Freelancejob) => {
-					return '/manage/certificates/' + doc._id;
-				},
-			},
 		],
 	};
 
@@ -228,6 +268,8 @@ export class JobsComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router,
-		private _fss: FreelanceskillService
+		private _fss: FreelanceskillService,
+		private _fcs: FreelancecourseService,
+		private _fts: FreelancetestService
 	) {}
 }
