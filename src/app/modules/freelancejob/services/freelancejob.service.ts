@@ -17,6 +17,8 @@ export interface Freelancejob extends CrudDocument {
 	location: string;
 	experience: 'New' | 'Junior' | 'Mid' | 'Senior';
 	deadline: Date;
+	courses: string;
+	tests: string;
 	startup: string;
 }
 

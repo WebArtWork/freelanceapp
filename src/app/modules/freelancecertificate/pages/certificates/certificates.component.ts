@@ -5,6 +5,9 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
+import { Freelancejob } from 'src/app/modules/freelancejob/services/freelancejob.service';
+import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 
 @Component({
 	templateUrl: './certificates.component.html',
@@ -92,6 +95,50 @@ export class CertificatesComponent {
 					}
 				],
 			},
+			{
+				name: 'Select',
+				key: 'course',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill certificates course',
+					},
+					{
+						name: 'Label',
+						value: 'Course',
+					},
+					{
+						name: 'Items',
+						value: this._fcs.freelancecourses
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
+				],
+			},
+			{
+				name: 'Select',
+				key: 'test',
+				fields: [
+					{
+						name: 'Placeholder',
+						value: 'fill certificates test',
+					},
+					{
+						name: 'Label',
+						value: 'Test',
+					},
+					{
+						name: 'Items',
+						value: this._fts.freelancetests
+					},
+					{
+						name: 'Multiple',
+						value: true
+					}
+				],
+			},
 		],
 	});
 
@@ -100,8 +147,14 @@ export class CertificatesComponent {
 			this._form.modal<Freelancecertificate>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
-					// if course
-					// if test
+					if (this.courseId) {
+						(created as Freelancejob).courses = this.courseId;
+					}
+
+					if (this.testId) {
+						(created as Freelancejob).tests = this.testId
+					}
+					
 					this._sf.create(created as Freelancecertificate);
 					close();
 				},
@@ -177,6 +230,8 @@ export class CertificatesComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _fcs: FreelancecourseService,
+		private _fts: FreelancetestService
 	) { }
 }
