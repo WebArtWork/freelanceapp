@@ -23,11 +23,11 @@ export class SkillsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill skills title',
+						value: 'fill skills name',
 					},
 					{
 						name: 'Label',
-						value: 'Title',
+						value: 'Name',
 					},
 				],
 			},

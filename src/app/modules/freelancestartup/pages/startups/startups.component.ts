@@ -24,11 +24,11 @@ export class StartupsComponent {
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill startups title',
+						value: 'fill startups name',
 					},
 					{
 						name: 'Label',
-						value: 'Title',
+						value: 'Name',
 					},
 				],
 			},
@@ -58,6 +58,24 @@ export class StartupsComponent {
 						name: 'Label',
 						value: 'Currency',
 					},
+				],
+			},
+			{
+				name: 'Tags',
+				key: 'social',
+				fields: [
+					{
+						name: 'Button',
+						value: 'Add material',
+					},
+					{
+						name: 'Placeholder',
+						value: 'fill startups social',
+					},
+					{
+						name: 'Label',
+						value: 'Social',
+					}
 				],
 			},
 			{

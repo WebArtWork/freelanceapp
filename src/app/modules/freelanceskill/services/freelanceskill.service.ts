@@ -11,7 +11,7 @@ import {
 export interface Freelanceskill extends CrudDocument {
 	name: string;
 	website: string;
-	courses: string[];
+	courses: string;
 	tests: string[];
 }
 

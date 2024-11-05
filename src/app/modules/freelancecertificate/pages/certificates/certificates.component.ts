@@ -104,11 +104,11 @@ export class CertificatesComponent {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
 					if (this.courseId) {
-						(created as Freelancejob).courses = this.courseId;
+						(created as Freelancejob).course = this.courseId;
 					}
 
 					if (this.testId) {
-						(created as Freelancejob).tests = this.testId
+						(created as Freelancejob).test = this.testId
 					}
 
 					this._sf.create(created as Freelancecertificate);
@@ -137,18 +137,6 @@ export class CertificatesComponent {
 						text: this._translate.translate('Common.Yes'),
 						callback: () => {
 							this._sf.delete(doc);
-						},
-					},
-					{
-						icon: 'quiz',
-						hrefFunc: (doc: Freelancecertificate) => {
-							return '/courses/' + doc._id;
-						},
-					},
-					{
-						icon: 'menu_book',
-						hrefFunc: (doc: Freelancecertificate) => {
-							return '/tests/' + doc._id;
 						},
 					},
 				],
