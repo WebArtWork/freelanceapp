@@ -7,7 +7,10 @@ const routes: Routes = [{
 	path: '',
 	component: CertificatesComponent
 }, {
-	path: ':course',
+	path: 'course/:course',
+	component: CertificatesComponent
+}, {
+	path: 'test/:test',
 	component: CertificatesComponent
 }];
 

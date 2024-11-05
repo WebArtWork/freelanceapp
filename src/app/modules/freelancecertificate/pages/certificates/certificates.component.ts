@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 	styleUrls: ['./certificates.component.scss'],
 })
 export class CertificatesComponent {
-	readonly courseId = this._router.url.includes('/manage/certificates/') ? this._router.url.replace('/manage/certificates/', '') : '';
+	readonly courseId = this._router.url.includes('/manage/certificates/course/') ? this._router.url.replace('/manage/certificates/course/', '') : '';
+
+	readonly testId = this._router.url.includes('/manage/certificates/test/') ? this._router.url.replace('/manage/certificates/test/', '') : '';
 
 	columns = ['granted', 'grade', 'isCompleted', 'answer'];
 
@@ -98,6 +100,8 @@ export class CertificatesComponent {
 			this._form.modal<Freelancecertificate>(this.form, {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
+					// if course
+					// if test
 					this._sf.create(created as Freelancecertificate);
 					close();
 				},
