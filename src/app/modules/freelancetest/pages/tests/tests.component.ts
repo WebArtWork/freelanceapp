@@ -165,6 +165,12 @@ export class TestsComponent {
 					});
 				},
 			},
+			{
+				icon: 'verified',
+				hrefFunc: (doc: Freelancetest) => {
+					return '/manage/certificates/' + doc._id;
+				},
+			},
 		],
 	};
 
