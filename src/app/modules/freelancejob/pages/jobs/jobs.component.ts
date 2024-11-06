@@ -154,7 +154,7 @@ export class JobsComponent {
 			},
 			{
 				name: 'Select',
-				key: 'course',
+				key: 'courses',
 				fields: [
 					{
 						name: 'Placeholder',
@@ -176,7 +176,7 @@ export class JobsComponent {
 			},
 			{
 				name: 'Select',
-				key: 'test',
+				key: 'tests',
 				fields: [
 					{
 						name: 'Placeholder',

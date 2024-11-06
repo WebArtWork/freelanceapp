@@ -13,6 +13,8 @@ export interface Freelancecertificate extends CrudDocument {
 	grade: number;
 	isCompleted: boolean;
 	answer: string;
+	course: string;
+	test: string;
 	answers: string[];
 }
 

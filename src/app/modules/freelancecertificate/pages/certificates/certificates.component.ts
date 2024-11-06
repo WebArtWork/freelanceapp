@@ -5,9 +5,6 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
-import { FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
-import { Freelancejob } from 'src/app/modules/freelancejob/services/freelancejob.service';
-import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 
 @Component({
 	templateUrl: './certificates.component.html',
@@ -104,11 +101,11 @@ export class CertificatesComponent {
 				label: 'Create',
 				click: (created: unknown, close: () => void) => {
 					if (this.courseId) {
-						(created as Freelancejob).course = this.courseId;
+						(created as Freelancecertificate).course = this.courseId;
 					}
 
 					if (this.testId) {
-						(created as Freelancejob).test = this.testId
+						(created as Freelancecertificate).test = this.testId
 					}
 
 					this._sf.create(created as Freelancecertificate);

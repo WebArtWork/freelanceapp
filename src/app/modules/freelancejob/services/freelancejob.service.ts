@@ -17,8 +17,8 @@ export interface Freelancejob extends CrudDocument {
 	location: string;
 	experience: 'New' | 'Junior' | 'Mid' | 'Senior';
 	deadline: Date;
-	course: string;
-	test: string;
+	courses: string[];
+	tests: string[];
 	startup: string;
 }
 
@@ -26,7 +26,7 @@ export interface Freelancejob extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelancejobService extends CrudService<Freelancejob> {
-	freelancejobs: Freelancejob[] = [];
+	freelancejobs: Freelancejob[] = this.getDocs();
 
 	constructor(
 		_http: HttpService,
@@ -44,17 +44,6 @@ export class FreelancejobService extends CrudService<Freelancejob> {
 			_core
 		);
 
-		this.get().subscribe((freelancejobs: Freelancejob[]) => this.freelancejobs.push(...freelancejobs));
-
-		_core.on('freelancejob_create').subscribe((freelancejob: Freelancejob) => {
-			this.freelancejobs.push(freelancejob);
-		});
-
-		_core.on('freelancejob_delete').subscribe((freelancejob: Freelancejob) => {
-			this.freelancejobs.splice(
-				this.freelancejobs.findIndex((o) => o._id === freelancejob._id),
-				1
-			);
-		});
+		this.get();
 	}
 }

@@ -15,8 +15,17 @@ export class JobComponent {
 	}
 
 	get certificates(): Freelancecertificate[] {
-		return [];
-		// return this._fcs.certificatesByJob[this.job._id];
+		let certificates: Freelancecertificate[] = [];
+
+		for (const course of this.job.courses) {
+			certificates = certificates.concat(this._fcs.certificatesByCourse[course]);
+		}
+
+		for (const test of this.job.tests) {
+			certificates = certificates.concat(this._fcs.certificatesByTest[test]);
+		}
+
+		return certificates;
 	}
 
 	constructor(
@@ -24,5 +33,7 @@ export class JobComponent {
 		private _router: Router,
 		private _fas: FreelanceapplicationService,
 		private _fcs: FreelancecertificateService
-	) { }
+	) {
+
+	}
 }
