@@ -30,7 +30,8 @@ export interface Freelancetest extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelancetestService extends CrudService<Freelancetest> {
-	freelancetests: Freelancetest[] = [];
+	freelancetests: Freelancetest[] = this.getDocs();
+	
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -47,17 +48,6 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 			_core
 		);
 
-		this.get().subscribe((freelancetests: Freelancetest[]) => this.freelancetests.push(...freelancetests));
-
-		_core.on('freelancetest_create').subscribe((freelancetest: Freelancetest) => {
-			this.freelancetests.push(freelancetest);
-		});
-
-		_core.on('freelancetest_delete').subscribe((freelancetest: Freelancetest) => {
-			this.freelancetests.splice(
-				this.freelancetests.findIndex((o) => o._id === freelancetest._id),
-				1
-			);
-		});
+		this.get();
 	}
 }

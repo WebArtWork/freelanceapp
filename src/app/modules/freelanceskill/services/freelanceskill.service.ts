@@ -19,7 +19,8 @@ export interface Freelanceskill extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelanceskillService extends CrudService<Freelanceskill> {
-	freelanceskills: Freelanceskill[] = [];
+	freelanceskills: Freelanceskill[] = this.getDocs();
+	
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -36,17 +37,6 @@ export class FreelanceskillService extends CrudService<Freelanceskill> {
 			_core
 		);
 
-		this.get().subscribe((freelanceskills: Freelanceskill[]) => this.freelanceskills.push(...freelanceskills));
-
-		_core.on('freelanceskill_create').subscribe((freelanceskill: Freelanceskill) => {
-			this.freelanceskills.push(freelanceskill);
-		});
-
-		_core.on('freelanceskill_delete').subscribe((freelanceskill: Freelanceskill) => {
-			this.freelanceskills.splice(
-				this.freelanceskills.findIndex((o) => o._id === freelanceskill._id),
-				1
-			);
-		});
+		this.get();
 	}
 }

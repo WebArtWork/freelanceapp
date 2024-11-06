@@ -22,7 +22,7 @@ export interface Freelancecertificate extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelancecertificateService extends CrudService<Freelancecertificate> {
-	freelancecertificates: Freelancecertificate[] = [];
+	freelancecertificates: Freelancecertificate[] = this.getDocs();
 
 	certificatesByCourse: Record<string, Freelancecertificate[]> = {};
 

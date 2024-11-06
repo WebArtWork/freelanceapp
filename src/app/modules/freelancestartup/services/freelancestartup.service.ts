@@ -24,7 +24,8 @@ export interface Freelancestartup extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelancestartupService extends CrudService<Freelancestartup> {
-	freelancestartups: Freelancestartup[] = [];
+	freelancestartups: Freelancestartup[] = this.getDocs();
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -41,17 +42,6 @@ export class FreelancestartupService extends CrudService<Freelancestartup> {
 			_core
 		);
 
-		this.get().subscribe((freelancestartups: Freelancestartup[]) => this.freelancestartups.push(...freelancestartups));
-
-		_core.on('freelancestartup_create').subscribe((freelancestartup: Freelancestartup) => {
-			this.freelancestartups.push(freelancestartup);
-		});
-
-		_core.on('freelancestartup_delete').subscribe((freelancestartup: Freelancestartup) => {
-			this.freelancestartups.splice(
-				this.freelancestartups.findIndex((o) => o._id === freelancestartup._id),
-				1
-			);
-		});
+		this.get();
 	}
 }

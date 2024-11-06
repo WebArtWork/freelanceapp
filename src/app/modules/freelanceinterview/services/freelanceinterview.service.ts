@@ -29,7 +29,8 @@ export interface Freelanceinterview extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelanceinterviewService extends CrudService<Freelanceinterview> {
-	freelanceinterviews: Freelanceinterview[] = [];
+	freelanceinterviews: Freelanceinterview[] = this.getDocs();
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -46,17 +47,6 @@ export class FreelanceinterviewService extends CrudService<Freelanceinterview> {
 			_core
 		);
 
-		this.get().subscribe((freelanceinterviews: Freelanceinterview[]) => this.freelanceinterviews.push(...freelanceinterviews));
-
-		_core.on('freelanceinterview_create').subscribe((freelanceinterview: Freelanceinterview) => {
-			this.freelanceinterviews.push(freelanceinterview);
-		});
-
-		_core.on('freelanceinterview_delete').subscribe((freelanceinterview: Freelanceinterview) => {
-			this.freelanceinterviews.splice(
-				this.freelanceinterviews.findIndex((o) => o._id === freelanceinterview._id),
-				1
-			);
-		});
+		this.get();
 	}
 }

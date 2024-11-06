@@ -22,8 +22,10 @@ export interface Freelanceapplication extends CrudDocument {
 	providedIn: 'root',
 })
 export class FreelanceapplicationService extends CrudService<Freelanceapplication> {
-	freelanceapplications: Freelanceapplication[] = [];
+	freelanceapplications: Freelanceapplication[] = this.getDocs();
+
 	applicationsByJob: Record<string, Freelanceapplication[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -40,18 +42,8 @@ export class FreelanceapplicationService extends CrudService<Freelanceapplicatio
 			_core
 		);
 
-		this.get().subscribe((freelanceapplications: Freelanceapplication[]) => this.freelanceapplications.push(...freelanceapplications));
+		this.get();
 
-		_core.on('freelanceapplication_create').subscribe((freelanceapplication: Freelanceapplication) => {
-			this.freelanceapplications.push(freelanceapplication);
-		});
-
-		_core.on('freelanceapplication_delete').subscribe((freelanceapplication: Freelanceapplication) => {
-			this.freelanceapplications.splice(
-				this.freelanceapplications.findIndex((o) => o._id === freelanceapplication._id),
-				1
-			);
-		});
 		this.filteredDocuments(this.applicationsByJob, 'job');
 	}
 }
