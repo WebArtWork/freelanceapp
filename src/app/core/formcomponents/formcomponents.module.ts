@@ -80,7 +80,7 @@ export class FormcomponentsModule {
 
 		this._form.injectComponent<SelectComponent>(
 			SelectComponent,
-			['Placeholder', 'Label', 'Items', 'Multiple'],
+			['Placeholder', 'Label', 'Items', 'Multiple', 'Name', 'Value'],
 			{
 				Items: 'Tags',
 				Multiple: 'Boolean'

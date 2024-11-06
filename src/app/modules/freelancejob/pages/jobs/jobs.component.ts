@@ -5,7 +5,6 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
-import { Freelanceapplication } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 import { FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
 import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
@@ -71,6 +70,10 @@ export class JobsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -89,6 +92,10 @@ export class JobsComponent {
 					{
 						name: 'Items',
 						value: ['Fixed', 'Hourly', 'Weekly', 'Monthly']
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -135,6 +142,10 @@ export class JobsComponent {
 					{
 						name: 'Items',
 						value: ['New', 'Junior', 'Mid', 'Senior']
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -171,6 +182,10 @@ export class JobsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -193,6 +208,10 @@ export class JobsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},

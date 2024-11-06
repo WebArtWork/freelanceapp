@@ -64,6 +64,10 @@ export class ApplicationsComponent {
 					{
 						name: 'Items',
 						value: ['New', 'Seen', 'Rejected', 'Interview', 'Accepted', 'Ended']
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -86,6 +90,10 @@ export class ApplicationsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
@@ -126,6 +134,10 @@ export class ApplicationsComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},

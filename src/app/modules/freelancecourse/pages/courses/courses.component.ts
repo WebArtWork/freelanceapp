@@ -97,6 +97,10 @@ export class CoursesComponent {
 					{
 						name: 'Multiple',
 						value: true
+					},
+					{
+						name: 'Name',
+						value: 'title'
 					}
 				],
 			},
