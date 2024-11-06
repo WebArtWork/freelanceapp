@@ -71,10 +71,6 @@ export class JobsComponent {
 						name: 'Multiple',
 						value: true
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 			{
@@ -93,10 +89,6 @@ export class JobsComponent {
 						name: 'Items',
 						value: ['Fixed', 'Hourly', 'Weekly', 'Monthly']
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 			{
@@ -143,10 +135,6 @@ export class JobsComponent {
 						name: 'Items',
 						value: ['New', 'Junior', 'Mid', 'Senior']
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 			{

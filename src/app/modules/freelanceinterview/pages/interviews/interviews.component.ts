@@ -51,10 +51,6 @@ export class InterviewsComponent {
 						name: 'Items',
 						value: ['Online', 'Phone', 'Office']
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 			{
@@ -87,10 +83,6 @@ export class InterviewsComponent {
 						name: 'Items',
 						value: ['New', 'Planned', 'Canceled', 'Completed']
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 			{

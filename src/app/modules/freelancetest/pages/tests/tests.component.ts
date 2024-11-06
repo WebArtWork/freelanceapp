@@ -99,10 +99,6 @@ export class TestsComponent {
 						name: 'Multiple',
 						value: true
 					},
-					{
-						name: 'Name',
-						value: 'title'
-					}
 				],
 			},
 		],
