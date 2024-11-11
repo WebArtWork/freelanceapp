@@ -48,5 +48,7 @@ export class FreelanceinterviewService extends CrudService<Freelanceinterview> {
 		);
 
 		this.get();
+
+		_core.on('wipe').subscribe(this.get.bind(this));
 	}
 }

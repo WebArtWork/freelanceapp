@@ -14,7 +14,7 @@ import { TestQuestionsComponent } from './test-questions/test-questions.componen
 })
 export class TestsComponent {
 	readonly startupId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
-	readonly certificateId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
+	// readonly certificateId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
 
 	columns = ['title', 'description', 'duration'];
 
@@ -113,9 +113,9 @@ export class TestsComponent {
 						(created as Freelancetest).startup = this.startupId;
 					}
 
-					if (this.certificateId) {
-						(created as Freelancetest).certificate = this.certificateId;
-					}
+					// if (this.certificateId) {
+					// 	(created as Freelancetest).certificate = this.certificateId;
+					// }
 
 					this._sf.create(created as Freelancetest);
 					close();

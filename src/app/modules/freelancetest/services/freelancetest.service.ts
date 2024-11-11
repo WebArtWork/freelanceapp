@@ -22,7 +22,7 @@ export interface Freelancetest extends CrudDocument {
 	duration: number;
 	skills: string[];
 	startup: string;
-	certificate: string;
+	// certificate: string;
 	questions: Freelancetestquestion[];
 }
 
@@ -49,5 +49,7 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 		);
 
 		this.get();
+
+		_core.on('wipe').subscribe(this.get.bind(this));
 	}
 }

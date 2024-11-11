@@ -6,16 +6,15 @@ import {
 	Injector,
 	Type
 } from '@angular/core';
-import { StoreService } from 'wacom';
+import { ModalService, StoreService } from 'wacom';
 import { TemplateFieldInterface } from './interfaces/component.interface';
-import { ModalService } from 'src/app/core/modules/modal/modal.service';
 import { FormInterface } from './interfaces/form.interface';
 import { ModalFormComponent } from './modals/modal-form/modal-form.component';
 import { TranslateService } from '../translate/translate.service';
 import { ModalUniqueComponent } from './modals/modal-unique/modal-unique.component';
-import { Modal } from '../modal/modal.interface';
 import { environment } from 'src/environments/environment';
 import { CustomformService } from 'src/app/modules/customform/services/customform.service';
+import { Modal } from 'wacom/lib/interfaces/modal.interface';
 
 export interface FormModalButton {
 	/** Function to execute on button click */
@@ -72,12 +71,11 @@ export class FormService {
 		return this.customTemplateFields[name] || {};
 	}
 	injectComponent<T>(
+		name: string,
 		component: Type<T>,
 		fields = ['Placeholder', 'Label'],
 		customFields: Record<string, string> = {}
 	): void {
-		const name = component.name.replace('_', '').replace('Component', '');
-
 		if (!this._injectedComponent[name]) {
 			this._injectedComponent[name] = true;
 

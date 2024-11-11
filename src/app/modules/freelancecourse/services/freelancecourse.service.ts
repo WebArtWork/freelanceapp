@@ -17,7 +17,7 @@ export interface Freelancecourse extends CrudDocument {
 	materials: string[];
 	expiration: number;
 	startup: string;
-	certificate: string;
+	// certificate: string;
 }
 
 @Injectable({
@@ -43,5 +43,7 @@ export class FreelancecourseService extends CrudService<Freelancecourse> {
 		);
 
 		this.get();
+
+		_core.on('wipe').subscribe(this.get.bind(this));
 	}
 }

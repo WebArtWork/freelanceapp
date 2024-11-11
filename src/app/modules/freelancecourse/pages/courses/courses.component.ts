@@ -5,7 +5,7 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
-import { Freelanceskill, FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
+import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 
 @Component({
 	templateUrl: './courses.component.html',
@@ -13,7 +13,7 @@ import { Freelanceskill, FreelanceskillService } from 'src/app/modules/freelance
 })
 export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
-	readonly certificateId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
+	// readonly certificateId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
 	
 	columns = ['title', 'description', 'duration', 'expiration'];
 
@@ -144,9 +144,9 @@ export class CoursesComponent {
 						(created as Freelancecourse).startup = this.startupId;
 					}
 
-					if (this.certificateId) {
-						(created as Freelancecourse).certificate = this.certificateId;
-					}
+					// if (this.certificateId) {
+					// 	(created as Freelancecourse).certificate = this.certificateId;
+					// }
 
 					this._sf.create(created as Freelancecourse);
 					close();

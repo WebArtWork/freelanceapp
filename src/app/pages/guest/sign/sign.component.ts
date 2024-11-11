@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HashService, HttpService, UiService } from 'wacom';
+import { CoreService, HashService, HttpService, UiService } from 'wacom';
 import { AlertService } from 'src/app/core/modules/alert/alert.service';
 import { Router } from '@angular/router';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
@@ -104,8 +104,11 @@ export class SignComponent {
 		private _hash: HashService,
 		private _router: Router,
 		private _form: FormService,
-		private _translate: TranslateService
-	) {}
+		private _translate: TranslateService,
+		private _core: CoreService
+	) {
+		this._core.emit('wipe');
+	}
 
 	submit(): void {
 		if (!this.form.components[2].hidden && this.user.resetPin) {
@@ -188,7 +191,7 @@ export class SignComponent {
 
 			this.us.setUser(user);
 
-			this.us.load();
+			this.us.get();
 
 			this._router.navigateByUrl('/profile');
 		} else {

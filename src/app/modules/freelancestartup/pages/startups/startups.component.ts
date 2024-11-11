@@ -4,7 +4,6 @@ import { FreelancestartupService, Freelancestartup } from '../../services/freela
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
-import { Router } from '@angular/router';
 
 @Component({
 	templateUrl: './startups.component.html',
@@ -62,7 +61,7 @@ export class StartupsComponent {
 			},
 			{
 				name: 'Tags',
-				key: 'social',
+				key: 'socials',
 				fields: [
 					{
 						name: 'Button',

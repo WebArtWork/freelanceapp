@@ -146,18 +146,6 @@ export class CertificatesComponent {
 					this._form.modalUnique<Freelancecertificate>('certificates', 'url', doc);
 				},
 			},
-			{
-				icon: 'menu_book',
-				hrefFunc: (doc: Freelancecertificate) => {
-					return '/manage/courses/' + doc._id;
-				},
-			},
-			{
-				icon: 'quiz',
-				hrefFunc: (doc: Freelancecertificate) => {
-					return '/manage/tests/' + doc._id;
-				},
-			},
 		],
 	};
 

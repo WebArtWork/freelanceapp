@@ -45,5 +45,7 @@ export class FreelancejobService extends CrudService<Freelancejob> {
 		);
 
 		this.get();
+
+		_core.on('wipe').subscribe(this.get.bind(this));
 	}
 }

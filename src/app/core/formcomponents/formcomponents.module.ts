@@ -46,21 +46,29 @@ import { TagsComponent } from './tags/tags.component';
 export class FormcomponentsModule {
 	constructor(private _form: FormService) {
 		/* addComponents */
-		this._form.injectComponent<BooleanComponent>(BooleanComponent, [
+		this._form.injectComponent<BooleanComponent>(
+			'Boolean',
+			BooleanComponent,
+			['Label']
+		);
+
+		this._form.injectComponent<ButtonComponent>('Button', ButtonComponent, [
 			'Label'
 		]);
 
-		this._form.injectComponent<ButtonComponent>(ButtonComponent, ['Label']);
+		this._form.injectComponent<DateComponent>('Date', DateComponent);
 
-		this._form.injectComponent<DateComponent>(DateComponent);
+		this._form.injectComponent<EmailComponent>('Email', EmailComponent);
 
-		this._form.injectComponent<EmailComponent>(EmailComponent);
+		this._form.injectComponent<NumberComponent>('Number', NumberComponent);
 
-		this._form.injectComponent<NumberComponent>(NumberComponent);
-
-		this._form.injectComponent<PasswordComponent>(PasswordComponent);
+		this._form.injectComponent<PasswordComponent>(
+			'Password',
+			PasswordComponent
+		);
 
 		this._form.injectComponent<PhotoComponent>(
+			'Photo',
 			PhotoComponent,
 			['Label', 'Width', 'Height'],
 			{
@@ -70,6 +78,7 @@ export class FormcomponentsModule {
 		);
 
 		this._form.injectComponent<PhotosComponent>(
+			'Photos',
 			PhotosComponent,
 			['Label', 'Width', 'Height'],
 			{
@@ -79,6 +88,7 @@ export class FormcomponentsModule {
 		);
 
 		this._form.injectComponent<SelectComponent>(
+			'Select',
 			SelectComponent,
 			['Placeholder', 'Label', 'Items', 'Multiple', 'Name', 'Value'],
 			{
@@ -87,18 +97,19 @@ export class FormcomponentsModule {
 			}
 		);
 
-		this._form.injectComponent<TagsComponent>(TagsComponent, [
+		this._form.injectComponent<TagsComponent>('Tags', TagsComponent, [
 			'Button',
 			'Placeholder',
 			'Label'
 		]);
 
 		this._form.injectComponent<TextComponent>(
+			'Text',
 			TextComponent,
 			['Textarea', 'Placeholder', 'Label'],
 			{ Textarea: 'Boolean' }
 		);
 
-		this._form.injectComponent<TimeComponent>(TimeComponent);
+		this._form.injectComponent<TimeComponent>('Time', TimeComponent);
 	}
 }

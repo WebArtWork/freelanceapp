@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { AlertService, CoreService } from 'wacom';
 import { FreelancejobService, Freelancejob } from '../../services/freelancejob.service';
-import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
-import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 import { FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
 import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
+import { FormService } from 'src/app/core/modules/form/form.service';
+import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 
 @Component({
 	templateUrl: './jobs.component.html',
@@ -107,15 +107,15 @@ export class JobsComponent {
 			},
 			{
 				name: 'Text',
-				key: 'locations',
+				key: 'location',
 				fields: [
 					{
 						name: 'Placeholder',
-						value: 'fill jobs locations',
+						value: 'fill jobs location',
 					},
 					{
 						name: 'Label',
-						value: 'Locations',
+						value: 'Location',
 					},
 				],
 			},

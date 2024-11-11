@@ -46,6 +46,8 @@ export class FreelancecertificateService extends CrudService<Freelancecertificat
 
 		this.get();
 
+		_core.on('wipe').subscribe(this.get.bind(this));
+
 		this.filteredDocuments(this.certificatesByCourse, 'course');
 
 		this.filteredDocuments(this.certificatesByTest, 'test');
