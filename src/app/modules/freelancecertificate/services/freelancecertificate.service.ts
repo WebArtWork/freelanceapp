@@ -13,9 +13,9 @@ export interface Freelancecertificate extends CrudDocument {
 	grade: number;
 	isCompleted: boolean;
 	answer: string;
+	answers: string[];
 	course: string;
 	test: string;
-	answers: string[];
 }
 
 @Injectable({
