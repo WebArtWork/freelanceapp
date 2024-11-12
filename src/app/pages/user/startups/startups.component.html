@@ -1,5 +1,7 @@
-{{startup|json}}
-
-<div>
-    <h2>{{startup}}</h2>
+<div *ngFor="let startup of startups">
+    <h3>{{startup.name}}</h3>
+    <p>{{startup.description}}</p>
+    <p>{{startup.currency}}</p>
+    <p>{{startup.socials}}</p>
+    <p>{{startup.pitchDeck}}</p>
 </div>
