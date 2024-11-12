@@ -1,7 +1,10 @@
-<div *ngFor="let startup of startups">
+<h3>Startups</h3>
+<div class="wrapper" *ngFor="let startup of fss.freelancestartups" routerLink="/startup/{{startup._id}}">
     <h3>{{startup.name}}</h3>
-    <p>{{startup.description}}</p>
-    <p>{{startup.currency}}</p>
-    <p>{{startup.socials}}</p>
-    <p>{{startup.pitchDeck}}</p>
+    <p><strong>Description:</strong> {{startup.description}}</p>
+    <div class="badge-line">
+		<span>Currency: {{startup.currency}}</span>
+		<span>Socials: {{startup.socials}}</span>
+		<span>pitchDeck: {{startup.pitchDeck}}</span>
+	</div>
 </div>

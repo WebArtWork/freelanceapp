@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--c-bg-secondary);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-box-shadow);
+    margin-bottom: var(--card-margin-bottom);
+    padding: var(--card-body-padding);
+}
+
+.badge-line {
+    display: flex;
+
+    span {
+        font-weight: 400;
+        font-size: small;
+        margin: 0 20px 0 0;
+    }
+}

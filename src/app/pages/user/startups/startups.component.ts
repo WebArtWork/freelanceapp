@@ -20,6 +20,7 @@ export class StartupsComponent {
 	}
 
 	constructor(
-		private _fss: FreelancestartupService
+		private _fss: FreelancestartupService,
+		public fss: FreelancestartupService
 	) {}
 }

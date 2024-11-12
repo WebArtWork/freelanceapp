@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: '',
+		path: ':startup_id',
 		component: StartupComponent
 	}
 ];
@@ -14,4 +14,4 @@ const routes: Routes = [
 	imports: [RouterModule.forChild(routes), CoreModule],
 	declarations: [StartupComponent]
 })
-export class StartupModule {}
+export class StartupModule { }

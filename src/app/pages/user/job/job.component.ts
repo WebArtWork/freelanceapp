@@ -33,7 +33,5 @@ export class JobComponent {
 		private _router: Router,
 		private _fas: FreelanceapplicationService,
 		private _fcs: FreelancecertificateService
-	) {
-
-	}
+	) {}
 }
