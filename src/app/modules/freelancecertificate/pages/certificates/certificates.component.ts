@@ -105,7 +105,7 @@ export class CertificatesComponent {
 					}
 
 					if (this.testId) {
-						(created as Freelancecertificate).test = this.testId
+						(created as Freelancecertificate).test = this.testId;
 					}
 
 					this._sf.create(created as Freelancecertificate);
