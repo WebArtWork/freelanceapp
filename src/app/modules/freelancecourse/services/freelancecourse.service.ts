@@ -17,7 +17,6 @@ export interface Freelancecourse extends CrudDocument {
 	materials: string[];
 	expiration: number;
 	startup: string;
-	// certificate: string;
 }
 
 @Injectable({
@@ -25,6 +24,8 @@ export interface Freelancecourse extends CrudDocument {
 })
 export class FreelancecourseService extends CrudService<Freelancecourse> {
 	freelancecourses: Freelancecourse[] = this.getDocs();
+
+	coursesByStartup: Record<string, Freelancecourse[]> = {};
 
 	constructor(
 		_http: HttpService,
@@ -45,5 +46,7 @@ export class FreelancecourseService extends CrudService<Freelancecourse> {
 		this.get();
 
 		_core.on('wipe').subscribe(this.get.bind(this));
+
+		this.filteredDocuments(this.coursesByStartup, 'startup');
 	}
 }
