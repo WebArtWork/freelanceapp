@@ -1,10 +1,10 @@
-<h3>Show object in html</h3>
-{{fis.freelanceinterviews|json}}
-
-<h3>In case of array, show object of each array element</h3>
-<div *ngFor="let interview of fis.freelanceinterviews">{{interview|json}}</div>
-
-<h3>Proper management of interview rows</h3>
-<div *ngFor="let interview of fis.freelanceinterviews" routerLink="/interview/{{interview._id}}">
+<h3>Interviews</h3>
+<div class="wrapper" *ngFor="let interview of fis.freelanceinterviews" routerLink="/interview/{{interview._id}}">
     <h3>{{interview.date}}</h3>
+    <p>{{interview.date}}</p>
+    <p>{{interview.grade}}</p>
+    <p>{{interview.isApproved}}</p>
+    <p>{{interview.link}}</p>
+    <p>{{interview.status}}</p>
+    <p>{{interview.type}}</p>
 </div>

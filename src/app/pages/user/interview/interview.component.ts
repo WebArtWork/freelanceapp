@@ -6,8 +6,7 @@ import { Freelanceinterview, FreelanceinterviewService } from 'src/app/modules/f
 	styleUrls: ['./interview.component.scss']
 })
 export class InterviewComponent {
-	course: Freelanceinterview = this._fis.doc(this._router.url.replace('/interview/', ''));
-	interview: any;
+	interview: Freelanceinterview = this._fis.doc(this._router.url.replace('/interview/', ''));
 
 	constructor(
 		private _fis: FreelanceinterviewService,
