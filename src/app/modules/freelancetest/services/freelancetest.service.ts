@@ -22,7 +22,6 @@ export interface Freelancetest extends CrudDocument {
 	duration: number;
 	skills: string[];
 	startup: string;
-	// certificate: string;
 	questions: Freelancetestquestion[];
 }
 
@@ -31,6 +30,8 @@ export interface Freelancetest extends CrudDocument {
 })
 export class FreelancetestService extends CrudService<Freelancetest> {
 	freelancetests: Freelancetest[] = this.getDocs();
+
+	testsByStartup: Record<string, Freelancetest[]> = {};
 	
 	constructor(
 		_http: HttpService,
@@ -51,5 +52,7 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 		this.get();
 
 		_core.on('wipe').subscribe(this.get.bind(this));
+
+		this.filteredDocuments(this.testsByStartup, 'startup');
 	}
 }
