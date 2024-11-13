@@ -1,10 +1,7 @@
-<h3>Show object in html</h3>
-{{fts.freelancetests|json}}
+<h3>Tests</h3>
 
-<h3>In case of array, show object of each array element</h3>
-<div *ngFor="let test of fts.freelancetests">{{test|json}}</div>
-
-<h3>Proper management of test rows</h3>
-<div *ngFor="let test of fts.freelancetests" routerLink="/test/{{test._id}}">
+<div class="wrapper" *ngFor="let test of fts.freelancetests" routerLink="/test/{{test._id}}">
     <h3>{{test.title}}</h3>
+    <p>{{test.description}}</p>
+    <p>{{test.duration}}</p>
 </div>
