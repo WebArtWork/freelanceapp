@@ -32,6 +32,8 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 	freelancetests: Freelancetest[] = this.getDocs();
 
 	testsByStartup: Record<string, Freelancetest[]> = {};
+
+	/*testsByJob: Record<string, Freelancetest[]> = {};*/
 	
 	constructor(
 		_http: HttpService,
@@ -54,5 +56,7 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 		_core.on('wipe').subscribe(this.get.bind(this));
 
 		this.filteredDocuments(this.testsByStartup, 'startup');
+
+		/*this.filteredDocuments(this.testsByJob, 'job');*/
 	}
 }

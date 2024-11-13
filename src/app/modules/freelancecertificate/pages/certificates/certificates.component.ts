@@ -149,12 +149,16 @@ export class CertificatesComponent {
 		],
 	};
 
-	get rows(): Freelancecertificate[] {
+	/*get rows(): Freelancecertificate[] {
 		return this.courseId
 			? this._sf.certificatesByCourse[this.courseId]
 			: this.testId
 				? this._sf.certificatesByTest[this.testId]
 				: this._sf.freelancecertificates;
+	}*/
+
+	get rows(): Freelancecertificate[] {
+		return this._sf.freelancecertificates;
 	}
 
 	constructor(

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Freelanceapplication, FreelanceapplicationService } from 'src/app/modules/freelanceapplication/services/freelanceapplication.service';
-import { Freelancecertificate, FreelancecertificateService } from 'src/app/modules/freelancecertificate/services/freelancecertificate.service';
+import { Freelancecourse, FreelancecourseService } from 'src/app/modules/freelancecourse/services/freelancecourse.service';
 import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/services/freelancejob.service';
+import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 @Component({
 	templateUrl: './job.component.html',
 	styleUrls: ['./job.component.scss']
@@ -14,7 +15,15 @@ export class JobComponent {
 		return this._fas.applicationsByJob[this.job._id];
 	}
 
-	get certificates(): Freelancecertificate[] {
+	/*get courses(): Freelancecourse[] {
+		return this._fcs.coursesByJob[this.job._id];
+	}
+
+	get tests(): Freelancetest[] {
+		return this._fts.testsByJob[this.job._id];
+	}*/
+
+	/*get certificates(): Freelancecertificate[] {
 		let certificates: Freelancecertificate[] = [];
 
 		for (const course of this.job.courses) {
@@ -26,12 +35,13 @@ export class JobComponent {
 		}
 
 		return certificates;
-	}
+	}*/
 
 	constructor(
 		private _fjs: FreelancejobService,
 		private _router: Router,
 		private _fas: FreelanceapplicationService,
-		private _fcs: FreelancecertificateService
+		private _fcs: FreelancecourseService,
+		private _fts: FreelancetestService
 	) {}
 }

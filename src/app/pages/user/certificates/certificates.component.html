@@ -1,10 +1,9 @@
-<h3>Show object in html</h3>
-{{fcs.freelancecertificates|json}}
+<h3>Certificates</h3>
 
-<h3>In case of array, show object of each array element</h3>
-<div *ngFor="let certificate of fcs.freelancecertificates">{{certificate|json}}</div>
-
-<h3>Proper management of certificate rows</h3>
-<div *ngFor="let certificate of fcs.freelancecertificates" routerLink="/certificate/{{certificate._id}}">
+<div class="wrapper" *ngFor="let certificate of fcs.freelancecertificates" routerLink="/certificate/{{certificate._id}}">
     <h3>{{certificate.granted}}</h3>
+    <p>{{certificate.grade}}</p>
+    <p>{{certificate.isCompleted}}</p>
+    <p>{{certificate.answer}}</p>
+    <p>{{certificate.answers}}</p>
 </div>

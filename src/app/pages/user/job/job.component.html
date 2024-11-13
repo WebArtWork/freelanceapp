@@ -1,6 +1,6 @@
 <h1>Job</h1>
 
-<div>
+<div class="wrapper">
 	<h2>{{job.title}}</h2>
 	<p>{{job.description}}</p>
 	<p>{{job.skills}}</p>
@@ -14,7 +14,7 @@
 
 <h1>Applications</h1>
 
-<div *ngFor="let application of applications">
+<div class="wrapper" *ngFor="let application of applications">
 	<h2>{{application.cover}}</h2>
 	<p>{{application.description}}</p>
 	<p>{{application.status}}</p>
@@ -24,15 +24,17 @@
 	<p>{{application.job}}</p>
 </div>
 
-<h1>Certificates</h1>
+<!-- <h1>Courses</h1>
 
-<div *ngFor="let certificate of certificates">
-	<h2>{{certificate.granted}}</h2>
-	<p>{{certificate.grade}}</p>
-	<p>{{certificate.isCompleted}}</p>
-	<p>{{certificate.answer}}</p>
-	<p>{{certificate.answers}}</p>
+<div class="wrapper" *ngFor="let course of courses">
+	<h2>{{course.title}}</h2>
+	<p>{{course.description}}</p>
 </div>
 
+<h1>Tests</h1>
 
+<div class="wrapper" *ngFor="let test of tests">
+	<h2>{{test.title}}</h2>
+	<p>{{test.description}}</p>
+</div> -->
 
