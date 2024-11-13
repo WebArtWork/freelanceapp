@@ -1,10 +1,11 @@
-<h3>Show object in html</h3>
-{{fcs.freelancecourses|json}}
+<h3>Courses</h3>
 
-<h3>In case of array, show object of each array element</h3>
-<div *ngFor="let course of fcs.freelancecourses">{{course|json}}</div>
-
-<h3>Proper management of course rows</h3>
-<div *ngFor="let course of fcs.freelancecourses" routerLink="/course/{{course._id}}">
-    <h3>{{course.title}}</h3>
+<div class="wrapper" *ngFor="let course of fcs.freelancecourses" routerLink="/course/{{course._id}}">
+    <h3>{{course.cost}}</h3>
+    <p>{{course.title}}</p>
+    <p>{{course.description}}</p>
+    <p>{{course.duration}}</p>
+    <p>{{course.materials}}</p>
+    <p>{{course.skills}}</p>
+    <p>{{course.expiration}}</p>
 </div>
