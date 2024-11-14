@@ -7,21 +7,19 @@ import { Freelancestartup, FreelancestartupService } from 'src/app/modules/freel
 	styleUrls: ['./startups.component.scss'],
 })
 export class StartupsComponent {
-	startupId: Freelancestartup[] = [];
+	startups: Freelancestartup[] = [];
 
-	load(): void {
-		this._fss.get({}, { name: 'public' }).subscribe((startupId) => {
-			console.log(startupId) // Виводимо стартапи в консоль для перевірки
-			this.startupId = startupId; // Зберігаємо отримані дані в змінній `startups`
+	load() {
+		this._fss.get({}, { name: 'public' }).subscribe((startups) => {
+			console.log(startups)
+			this.startups = startups;
 		});
-	}
-
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
 	}
 
 	constructor(
 		private _fss: FreelancestartupService,
 		public fss: FreelancestartupService
-	) { }
+	) {
+		this.load();
+	}
 }

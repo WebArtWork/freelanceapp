@@ -8,19 +8,17 @@ import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/
 export class JobsComponent {
 	jobId: Freelancejob[] = [];
 
-	load(): void {
+	load() {
 		this._fjs.get({}, { name: 'public' }).subscribe((jobId) => {
 			console.log(jobId) // Виводимо стартапи в консоль для перевірки
 			this.jobId = jobId; // Зберігаємо отримані дані в змінній `startups`
 		});
 	}
 
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
-	}
-
 	constructor(
 		public fjs: FreelancejobService,
 		private _fjs: FreelancejobService
-	) { }
+	) {
+		this.load(); 
+	}
 }
