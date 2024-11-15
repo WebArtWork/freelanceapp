@@ -5,20 +5,19 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	styleUrls: ['./tests.component.scss']
 })
 export class TestsComponent {
-	testId: Freelancetest[] = [];
+	tests: Freelancetest[] = [];
 
-	load(): void {
-		this._fts.get({}, { name: 'public' }).subscribe((testId) => {
-			console.log(testId) // Виводимо стартапи в консоль для перевірки
-			this.testId = testId; // Зберігаємо отримані дані в змінній `startups`
+	load() {
+		this._fts.get({}, { name: 'public' }).subscribe((tests) => {
+			console.log(tests) 
+			this.tests = tests;
 		});
 	}
 
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
-	}
 	constructor(
 		public fts: FreelancetestService,
 		private _fts: FreelancetestService
-	) { }
+	) {
+		this.load();
+	}
 }

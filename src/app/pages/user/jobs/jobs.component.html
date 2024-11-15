@@ -1,5 +1,5 @@
 <h1>Jobs</h1>
-<div class="wrapper" *ngFor="let job of fjs.freelancejobs" routerLink="/job/{{job._id}}">
+<div class="wrapper" *ngFor="let job of jobs" routerLink="/job/{{job._id}}">
 	<h3>{{job.title}}</h3>
 	<p>{{job.type}} - {{job.experience}}</p>
 	<p><strong>Description:</strong> {{job.description}}</p>

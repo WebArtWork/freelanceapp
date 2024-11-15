@@ -7,11 +7,23 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	styleUrls: ['./course.component.scss']
 })
 export class CourseComponent {
-	course: Freelancecourse = this._fcs.doc(this._router.url.replace('/course/', ''));
+	courseId: string = this._router.url.replace('/course/', '');
+	
+	course: Freelancecourse = {} as Freelancecourse;
+
+	load() {
+		this._fcs.fetch({
+			_id: this.courseId
+		}, {
+			name: 'public'
+		}).subscribe(course => this.course = course);
+	}
 
 	constructor(
 		private _fcs: FreelancecourseService,
 		private _router: Router,
 		private _fts: FreelancetestService
-	) { }
+	) {
+		this.load();
+	}
 }

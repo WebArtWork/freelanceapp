@@ -5,21 +5,19 @@ import { Freelancecertificate, FreelancecertificateService } from 'src/app/modul
 	styleUrls: ['./certificates.component.scss']
 })
 export class CertificatesComponent {
-	certificateId: Freelancecertificate[] = [];
+	certificates: Freelancecertificate[] = [];
 
-	load(): void {
-		this._fcs.get({}, { name: 'public' }).subscribe((certificateId) => {
-			console.log(certificateId) // Виводимо стартапи в консоль для перевірки
-			this.certificateId = certificateId; // Зберігаємо отримані дані в змінній `startups`
+	load() {
+		this._fcs.get({}, { name: 'public' }).subscribe((certificates) => {
+			console.log(certificates) 
+			this.certificates = certificates;
 		});
-	}
-
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
 	}
 
 	constructor(
 		public fcs: FreelancecertificateService,
 		private _fcs: FreelancecertificateService
-	) { }
+	) {
+		this.load();
+	}
 }

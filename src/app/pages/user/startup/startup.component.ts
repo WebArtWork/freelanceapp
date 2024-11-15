@@ -10,17 +10,10 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	styleUrls: ['./startup.component.scss'],
 })
 export class StartupComponent {
-	startup: Freelancestartup = this._fss.doc(this._router.url.replace('/startup/', ''));
-	startupId: Freelancestartup[] = [];
+	startupId: string = this._router.url.replace('/startup/', '');
 	
-	load(): void {
-		this._fjs.get({ query: '&startup=' + this.startupId }, {name: 'public'}).subscribe((jobs)=>{ console.log(jobs) });
-
-		this._fcs.get({ query: '&startup=' + this.startupId }, {name: 'public'}).subscribe((courses)=>{ console.log(courses) });
-
-		this._fts.get({ query: '&startup=' + this.startupId }, {name: 'public'}).subscribe((tests)=>{ console.log(tests) });
-	}
-
+	startup: Freelancestartup = {} as Freelancestartup;
+	
 	get jobs(): Freelancejob[] {
 		return this._fjs.jobsByStartup[this.startup._id];
 	}
@@ -33,11 +26,21 @@ export class StartupComponent {
 		return this._fts.testsByStartup[this.startup._id];
 	}
 
+	load() {
+		this._fss.fetch({
+			_id: this.startupId
+		}, {
+			name: 'public'
+		}).subscribe(startup => this.startup = startup);
+	}
+
 	constructor(
 		private _fss: FreelancestartupService,
 		private _router: Router,
 		private _fjs: FreelancejobService,
 		private _fcs: FreelancecourseService,
 		private _fts: FreelancetestService
-	) {}
+	) {
+		this.load();
+	}
 }

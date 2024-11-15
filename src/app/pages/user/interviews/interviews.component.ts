@@ -5,20 +5,20 @@ import { Freelanceinterview, FreelanceinterviewService } from 'src/app/modules/f
 	styleUrls: ['./interviews.component.scss']
 })
 export class InterviewsComponent {
-	interviewId: Freelanceinterview[] = [];
+	interviews: Freelanceinterview[] = [];
 
-	load(): void {
-		this._fis.get({}, { name: 'public' }).subscribe((interviewId) => {
-			console.log(interviewId) // Виводимо стартапи в консоль для перевірки
-			this.interviewId = interviewId; // Зберігаємо отримані дані в змінній `startups`
+	load() {
+		this._fis.get({}, { name: 'public' }).subscribe((interviews) => {
+			console.log(interviews)
+			this.interviews = interviews;
 		});
 	}
 
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
-	}
 	constructor(
 		public fis: FreelanceinterviewService,
 		private _fis: FreelanceinterviewService
-	) { }
+	) {
+		this.load();
+
+	}
 }

@@ -1,6 +1,6 @@
 <h1>Courses</h1>
 
-<div class="wrapper" *ngFor="let course of fcs.freelancecourses" routerLink="/course/{{course._id}}">
+<div class="wrapper" *ngFor="let course of courses" routerLink="/course/{{course._id}}">
     <h3>{{course.cost}}</h3>
     <p>{{course.title}}</p>
     <p>{{course.description}}</p>

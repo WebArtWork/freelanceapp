@@ -6,10 +6,22 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	styleUrls: ['./test.component.scss']
 })
 export class TestComponent {
-	test: Freelancetest = this._fts.doc(this._router.url.replace('/test/', ''));
+	testId: string = this._router.url.replace('/test/', '');
+	
+	test: Freelancetest = {} as Freelancetest;
+
+	load() {
+		this._fts.fetch({
+			_id: this.testId
+		}, {
+			name: 'public'
+		}).subscribe(test => this.test = test);
+	}
 
 	constructor(
 		private _fts: FreelancetestService,
 		private _router: Router
-	) { }
+	) {
+		this.load();
+	}
 }

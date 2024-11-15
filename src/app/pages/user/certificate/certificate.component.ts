@@ -6,12 +6,22 @@ import { Freelancecertificate, FreelancecertificateService } from 'src/app/modul
 	styleUrls: ['./certificate.component.scss']
 })
 export class CertificateComponent {
-	course: Freelancecertificate = this._fcs.doc(this._router.url.replace('/certificate/', ''));
+	certificateId: string = this._router.url.replace('/certificate/', '');
+
+	certificate: Freelancecertificate = {} as Freelancecertificate;
 	
-	certificate: Freelancecertificate = this._fcs.doc(this._router.url.replace('/certificate/', ''));
+	load() {
+		this._fcs.fetch({
+			_id: this.certificateId
+		}, {
+			name: 'public'
+		}).subscribe(certificate => this.certificate = certificate);
+	}
 
 	constructor(
 		private _fcs: FreelancecertificateService,
 		private _router: Router
-	) { }
+	) {
+		this.load();
+	}
 }

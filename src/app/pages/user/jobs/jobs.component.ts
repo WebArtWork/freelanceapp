@@ -6,12 +6,12 @@ import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/
 	styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent {
-	jobId: Freelancejob[] = [];
+	jobs: Freelancejob[] = [];
 
 	load() {
-		this._fjs.get({}, { name: 'public' }).subscribe((jobId) => {
-			console.log(jobId) // Виводимо стартапи в консоль для перевірки
-			this.jobId = jobId; // Зберігаємо отримані дані в змінній `startups`
+		this._fjs.get({}, { name: 'public' }).subscribe((jobs) => {
+			console.log(jobs) 
+			this.jobs= jobs;
 		});
 	}
 

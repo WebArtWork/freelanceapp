@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FreelancejobService } from 'src/app/modules/freelancejob/services/freelancejob.service';
 import { Freelancestartup, FreelancestartupService } from 'src/app/modules/freelancestartup/services/freelancestartup.service';
 
 @Component({

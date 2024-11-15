@@ -5,21 +5,19 @@ import { Freelancecourse, FreelancecourseService } from 'src/app/modules/freelan
 	styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent {
-	courseId: Freelancecourse[] = [];
+	courses: Freelancecourse[] = [];
 
-	load(): void {
-		this._fcs.get({}, { name: 'public' }).subscribe((courseId) => {
-			console.log(courseId) // Виводимо стартапи в консоль для перевірки
-			this.courseId = courseId; // Зберігаємо отримані дані в змінній `startups`
+	load() {
+		this._fcs.get({}, { name: 'public' }).subscribe((courses) => {
+			console.log(courses) 
+			this.courses = courses; 
 		});
-	}
-
-	ngOnInit(): void {
-		this.load(); // Викликаємо функцію `load` під час ініціалізації компонента
 	}
 
 	constructor(
 		public fcs: FreelancecourseService,
 		private _fcs: FreelancecourseService
-	) { }
+	) {
+		this.load();
+	}
 }
