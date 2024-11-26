@@ -9,5 +9,5 @@
 		<span>Location: {{job.location}}</span>
 		<span>Deadline: {{job.deadline | date}}</span>
 	</div>
-	<wbutton (click)="gotoStartup(job.startup)">Startup</wbutton>
+	<wbutton routerLink="/startup/{{job.startup}}">Startup</wbutton>
 </div>

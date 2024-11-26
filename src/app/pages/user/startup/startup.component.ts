@@ -13,10 +13,8 @@ export class StartupComponent {
 	startupId: string = this._router.url.replace('/startup/', '');
 	
 	startup: Freelancestartup = {} as Freelancestartup;
-	
-	get jobs(): Freelancejob[] {
-		return this._fjs.jobsByStartup[this.startup._id];
-	}
+
+	jobs: Freelancejob[] = [];
 
 	get courses(): Freelancecourse[] {
 		return this._fcs.coursesByStartup[this.startup._id];
@@ -32,6 +30,8 @@ export class StartupComponent {
 		}, {
 			name: 'public'
 		}).subscribe(startup => this.startup = startup);
+
+		this._fjs.get({query: '?startup=' + this.startupId}, { name: 'public' }).subscribe(jobs => this.jobs = jobs);
 	}
 
 	constructor(
