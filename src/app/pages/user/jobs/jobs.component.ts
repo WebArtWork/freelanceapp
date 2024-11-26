@@ -18,7 +18,7 @@ export class JobsComponent {
 
 	gotoStartup(startupId: string): void {
 		if (startupId) {
-		  this._router.navigate(['/startup', startupId]); // Формування URL для переходу на сторінку стартапу
+		  this._router.navigate(['/job/startup', startupId]);
 		} else {
 		  console.error('Startup ID is missing for this job.');
 		}
