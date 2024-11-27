@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Freelancejob, FreelancejobService } from 'src/app/modules/freelancejob/services/freelancejob.service';
 
 @Component({
@@ -18,8 +17,7 @@ export class JobsComponent {
 
 	constructor(
 		public fjs: FreelancejobService,
-		private _fjs: FreelancejobService,
-		private _router: Router
+		private _fjs: FreelancejobService
 	) {
 		this.load(); 
 	}
