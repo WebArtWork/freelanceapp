@@ -15,7 +15,7 @@
 <h1>Applications</h1>
 
 <div class="wrapper" *ngFor="let application of applications">
-	<h2>{{application.cover}}</h2>
+	<h3>{{application.cover}}</h3>
 	<p>{{application.description}}</p>
 	<p>{{application.status}}</p>
 	<p>{{application.tests}}</p>
@@ -27,14 +27,14 @@
 <h1>Courses</h1>
 
 <div class="wrapper" *ngFor="let course of courses">
-	<h2>{{course.title}}</h2>
+	<h3>{{course.title}}</h3>
 	<p>{{course.description}}</p>
 </div>
 
 <h1>Tests</h1>
 
 <div class="wrapper" *ngFor="let test of tests">
-	<h2>{{test.title}}</h2>
+	<h3>{{test.title}}</h3>
 	<p>{{test.description}}</p>
 </div>
 

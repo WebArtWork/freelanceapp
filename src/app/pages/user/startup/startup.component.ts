@@ -11,18 +11,14 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 })
 export class StartupComponent {
 	startupId: string = this._router.url.replace('/startup/', '');
-	
+
 	startup: Freelancestartup = {} as Freelancestartup;
 
 	jobs: Freelancejob[] = [];
 
-	get courses(): Freelancecourse[] {
-		return this._fcs.coursesByStartup[this.startup._id];
-	}
+	courses: Freelancecourse[] = [];
 
-	get tests(): Freelancetest[] {
-		return this._fts.testsByStartup[this.startup._id];
-	}
+	tests: Freelancetest[] = [];
 
 	load() {
 		this._fss.fetch({
@@ -31,7 +27,11 @@ export class StartupComponent {
 			name: 'public'
 		}).subscribe(startup => this.startup = startup);
 
-		this._fjs.get({query: '?startup=' + this.startupId}, { name: 'public' }).subscribe(jobs => this.jobs = jobs);
+		this._fjs.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(jobs => this.jobs = jobs);
+
+		this._fcs.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(courses => this.courses = courses);
+
+		this._fts.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(tests => this.tests = tests);
 	}
 
 	constructor(
