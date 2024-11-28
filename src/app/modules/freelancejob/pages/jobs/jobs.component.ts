@@ -277,6 +277,7 @@ export class JobsComponent {
 		private _router: Router,
 		private _fss: FreelanceskillService,
 		private _fcs: FreelancecourseService,
-		private _fts: FreelancetestService
+		private _fts: FreelancetestService,
+
 	) {}
 }

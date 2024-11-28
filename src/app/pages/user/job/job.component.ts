@@ -8,6 +8,7 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	templateUrl: './job.component.html',
 	styleUrls: ['./job.component.scss']
 })
+
 export class JobComponent {
 	jobId: string = this._router.url.replace('/job/', '');
 
@@ -26,7 +27,9 @@ export class JobComponent {
 			name: 'public'
 		}).subscribe(job => this.job = job);
 
-		this._fas.get({ query: '?job=' + this.jobId }, { name: 'public' }).subscribe(applications => this.applications = applications);
+		this._fas.get({ query: '?job=' + this.jobId }, { name: 'public' }).subscribe(applications => {
+			this.applications = applications;
+		});
 
 		this._fcs.get({ query: '?job=' + this.jobId }, { name: 'public' }).subscribe(courses => this.courses = courses);
 
