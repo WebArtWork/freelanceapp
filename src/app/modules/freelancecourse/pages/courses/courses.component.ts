@@ -13,12 +13,7 @@ import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/f
 })
 export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
-<<<<<<< HEAD
-	// readonly certificateId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
 
-=======
-	
->>>>>>> da7f4e2311e96e0ef929091f593c66bba6f431dd
 	columns = ['title', 'description', 'duration', 'expiration'];
 
 	form: FormInterface = this._form.getForm('courses', {
