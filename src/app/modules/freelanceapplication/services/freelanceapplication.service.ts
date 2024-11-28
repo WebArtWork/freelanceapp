@@ -45,7 +45,5 @@ export class FreelanceapplicationService extends CrudService<Freelanceapplicatio
 		this.get();
 
 		_core.on('wipe').subscribe(this.get.bind(this));
-
-		this.filteredDocuments(this.applicationsByJob, 'job');
 	}
 }

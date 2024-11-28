@@ -19,6 +19,7 @@ export interface Freelancejob extends CrudDocument {
 	deadline: Date;
 	courses: string[];
 	tests: string[];
+	application: string;
 	startup: string;
 }
 
@@ -49,7 +50,5 @@ export class FreelancejobService extends CrudService<Freelancejob> {
 		this.get();
 
 		_core.on('wipe').subscribe(this.get.bind(this));
-
-		this.filteredDocuments(this.jobsByStartup, 'startup');
 	}
 }

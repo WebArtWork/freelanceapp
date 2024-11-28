@@ -13,7 +13,6 @@ import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/f
 })
 export class CoursesComponent {
 	readonly startupId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
-	// readonly certificateId = this._router.url.includes('/manage/courses/') ? this._router.url.replace('/manage/courses/', '') : '';
 	
 	columns = ['title', 'description', 'duration', 'expiration'];
 
@@ -143,10 +142,6 @@ export class CoursesComponent {
 					if (this.startupId) {
 						(created as Freelancecourse).startup = this.startupId;
 					}
-
-					// if (this.certificateId) {
-					// 	(created as Freelancecourse).certificate = this.certificateId;
-					// }
 
 					this._sf.create(created as Freelancecourse);
 					close();

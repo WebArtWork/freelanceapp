@@ -25,10 +25,6 @@ export interface Freelancecourse extends CrudDocument {
 export class FreelancecourseService extends CrudService<Freelancecourse> {
 	freelancecourses: Freelancecourse[] = this.getDocs();
 
-	coursesByStartup: Record<string, Freelancecourse[]> = {};
-
-	/*coursesByJob: Record<string, Freelancecourse[]> = {};*/
-
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -48,9 +44,5 @@ export class FreelancecourseService extends CrudService<Freelancecourse> {
 		this.get();
 
 		_core.on('wipe').subscribe(this.get.bind(this));
-
-		this.filteredDocuments(this.coursesByStartup, 'startup');
-
-		/*this.filteredDocuments(this.coursesByJob, 'job');*/
 	}
 }
