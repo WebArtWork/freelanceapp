@@ -11,7 +11,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes), CoreModule],
-	declarations: [StartupComponent]
+	imports: [
+		RouterModule.forChild(routes), 
+		CoreModule
+	],
+	declarations: [
+		StartupComponent
+	]
 })
 export class StartupModule { }
