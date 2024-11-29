@@ -31,6 +31,8 @@ export interface Freelanceinterview extends CrudDocument {
 export class FreelanceinterviewService extends CrudService<Freelanceinterview> {
 	freelanceinterviews: Freelanceinterview[] = this.getDocs();
 
+	freelanceinterviewsByAuthor: Record<string, Freelanceinterview[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -48,6 +50,8 @@ export class FreelanceinterviewService extends CrudService<Freelanceinterview> {
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelanceinterviewsByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}

@@ -7,6 +7,7 @@ import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interfa
 import { Router } from '@angular/router';
 import { InterviewFeedbackComponent } from './interview-feedback/interview-feedback.component';
 import { ModalService } from 'src/app/core/modules/modal/modal.service';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './interviews.component.html',
@@ -174,7 +175,7 @@ export class InterviewsComponent {
 	};
 
 	get rows(): Freelanceinterview[] {
-		return this._sf.freelanceinterviews;
+		return this._sf.freelanceinterviewsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -184,6 +185,7 @@ export class InterviewsComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router,
-		private _modal: ModalService
+		private _modal: ModalService,
+		private _us: UserService
 	) {}
 }
