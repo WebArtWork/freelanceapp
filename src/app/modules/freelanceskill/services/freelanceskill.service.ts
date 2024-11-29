@@ -20,6 +20,8 @@ export interface Freelanceskill extends CrudDocument {
 })
 export class FreelanceskillService extends CrudService<Freelanceskill> {
 	freelanceskills: Freelanceskill[] = this.getDocs();
+
+	freelanceskillsByAuthor: Record<string, Freelanceskill[]> = {};
 	
 	constructor(
 		_http: HttpService,
@@ -38,6 +40,8 @@ export class FreelanceskillService extends CrudService<Freelanceskill> {
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelanceskillsByAuthor);
 		
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}

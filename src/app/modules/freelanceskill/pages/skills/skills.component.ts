@@ -4,6 +4,7 @@ import { FreelanceskillService, Freelanceskill } from '../../services/freelances
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './skills.component.html',
@@ -95,7 +96,7 @@ export class SkillsComponent {
 	};
 
 	get rows(): Freelanceskill[] {
-		return this._sf.freelanceskills;
+		return this._sf.freelanceskillsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -103,6 +104,7 @@ export class SkillsComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _us: UserService
 	) {}
 }

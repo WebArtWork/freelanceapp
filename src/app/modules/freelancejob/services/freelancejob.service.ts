@@ -29,7 +29,7 @@ export interface Freelancejob extends CrudDocument {
 export class FreelancejobService extends CrudService<Freelancejob> {
 	freelancejobs: Freelancejob[] = this.getDocs();
 
-	jobsByStartup: Record<string, Freelancejob[]> = {};
+	freelancejobsByAuthor: Record<string, Freelancejob[]> = {};
 
 	constructor(
 		_http: HttpService,
@@ -48,6 +48,8 @@ export class FreelancejobService extends CrudService<Freelancejob> {
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelancejobsByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}

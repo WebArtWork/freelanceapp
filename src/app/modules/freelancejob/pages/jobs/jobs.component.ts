@@ -8,6 +8,7 @@ import { FreelancecourseService } from 'src/app/modules/freelancecourse/services
 import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './jobs.component.html',
@@ -265,7 +266,7 @@ export class JobsComponent {
 	};
 
 	get rows(): Freelancejob[] {
-		return this._sf.freelancejobs;
+		return this._sf.freelancejobsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -278,6 +279,6 @@ export class JobsComponent {
 		private _fss: FreelanceskillService,
 		private _fcs: FreelancecourseService,
 		private _fts: FreelancetestService,
-
+		private _us: UserService
 	) {}
 }
