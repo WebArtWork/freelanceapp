@@ -7,7 +7,7 @@ const routes: Routes = [{
 	path: '',
 	component: ApplicationsComponent
 }, {
-	path: ':job_id',
+	path: ':job',
 	component: ApplicationsComponent
 }];
 

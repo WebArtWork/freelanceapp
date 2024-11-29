@@ -8,6 +8,7 @@ import {
 	CrudDocument,
 } from 'wacom';
 
+
 export interface Freelancestartup extends CrudDocument {
 	name: string;
 	description: string;
@@ -26,6 +27,8 @@ export interface Freelancestartup extends CrudDocument {
 export class FreelancestartupService extends CrudService<Freelancestartup> {
 	freelancestartups: Freelancestartup[] = this.getDocs();
 
+	freelancestartupsByAuthor: Record<string, Freelancestartup[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -43,6 +46,8 @@ export class FreelancestartupService extends CrudService<Freelancestartup> {
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelancestartupsByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}

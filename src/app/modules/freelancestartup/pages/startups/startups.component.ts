@@ -4,6 +4,7 @@ import { FreelancestartupService, Freelancestartup } from '../../services/freela
 import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './startups.component.html',
@@ -159,7 +160,7 @@ export class StartupsComponent {
 	};
 
 	get rows(): Freelancestartup[] {
-		return this._sf.freelancestartups;
+		return this._sf.freelancestartupsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -167,6 +168,7 @@ export class StartupsComponent {
 		private _translate: TranslateService,
 		private _alert: AlertService,
 		private _form: FormService,
-		private _core: CoreService
+		private _core: CoreService,
+		private _us: UserService
 	) {}
 }
