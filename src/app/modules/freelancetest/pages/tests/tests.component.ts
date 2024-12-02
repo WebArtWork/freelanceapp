@@ -7,6 +7,7 @@ import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interfa
 import { Router } from '@angular/router';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
 import { TestQuestionsComponent } from './test-questions/test-questions.component';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './tests.component.html',
@@ -14,7 +15,6 @@ import { TestQuestionsComponent } from './test-questions/test-questions.componen
 })
 export class TestsComponent {
 	readonly startupId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
-	// readonly certificateId = this._router.url.includes('/manage/tests/') ? this._router.url.replace('/manage/tests/', '') : '';
 
 	columns = ['title', 'description', 'duration'];
 
@@ -113,10 +113,6 @@ export class TestsComponent {
 						(created as Freelancetest).startup = this.startupId;
 					}
 
-					// if (this.certificateId) {
-					// 	(created as Freelancetest).certificate = this.certificateId;
-					// }
-
 					this._sf.create(created as Freelancetest);
 					close();
 				},
@@ -181,7 +177,7 @@ export class TestsComponent {
 	};
 
 	get rows(): Freelancetest[] {
-		return this._sf.freelancetests;
+		return this._sf.freelancetestsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -192,6 +188,7 @@ export class TestsComponent {
 		private _core: CoreService,
 		private _router: Router,
 		private _fss: FreelanceskillService,
-		private _modal: ModalService
+		private _modal: ModalService,
+		private _us: UserService
 	) { }
 }

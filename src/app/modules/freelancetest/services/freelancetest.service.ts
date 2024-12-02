@@ -30,6 +30,8 @@ export interface Freelancetest extends CrudDocument {
 })
 export class FreelancetestService extends CrudService<Freelancetest> {
 	freelancetests: Freelancetest[] = this.getDocs();
+
+	freelancetestsByAuthor: Record<string, Freelancetest[]> = {};
 	
 	constructor(
 		_http: HttpService,
@@ -48,6 +50,8 @@ export class FreelancetestService extends CrudService<Freelancetest> {
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelancetestsByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}
