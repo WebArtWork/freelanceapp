@@ -26,6 +26,8 @@ export class FreelanceapplicationService extends CrudService<Freelanceapplicatio
 
 	applicationsByJob: Record<string, Freelanceapplication[]> = {};
 
+	freelanceapplicationsByAuthor: Record<string, Freelanceapplication[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -43,6 +45,8 @@ export class FreelanceapplicationService extends CrudService<Freelanceapplicatio
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelanceapplicationsByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}

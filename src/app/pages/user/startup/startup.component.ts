@@ -27,7 +27,7 @@ export class StartupComponent {
 			name: 'public'
 		}).subscribe(startup => this.startup = startup);
 
-		this._fjs.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(jobs => this.jobs = jobs);
+		this._fjs.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(jobs => {this.jobs = jobs;});
 
 		this._fcs.get({ query: '?startup=' + this.startupId }, { name: 'public' }).subscribe(courses => this.courses = courses);
 

@@ -7,6 +7,7 @@ import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interfa
 import { Router } from '@angular/router';
 import { FreelancetestService } from 'src/app/modules/freelancetest/services/freelancetest.service';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './applications.component.html',
@@ -193,7 +194,7 @@ export class ApplicationsComponent {
 	};
 
 	get rows(): Freelanceapplication[] {
-		return this._sf.freelanceapplications;
+		return this._sf.freelanceapplicationsByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -204,6 +205,7 @@ export class ApplicationsComponent {
 		private _core: CoreService,
 		private _router: Router,
 		private _fts: FreelancetestService,
-		private _fss: FreelanceskillService
+		private _fss: FreelanceskillService,
+		private _us: UserService
 	) { }
 }
