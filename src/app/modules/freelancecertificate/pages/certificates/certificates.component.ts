@@ -5,6 +5,7 @@ import { FormService } from 'src/app/core/modules/form/form.service';
 import { TranslateService } from 'src/app/core/modules/translate/translate.service';
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './certificates.component.html',
@@ -149,16 +150,8 @@ export class CertificatesComponent {
 		],
 	};
 
-	/*get rows(): Freelancecertificate[] {
-		return this.courseId
-			? this._sf.certificatesByCourse[this.courseId]
-			: this.testId
-				? this._sf.certificatesByTest[this.testId]
-				: this._sf.freelancecertificates;
-	}*/
-
 	get rows(): Freelancecertificate[] {
-		return this._sf.freelancecertificates;
+		return this._sf.freelancecertificatesByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -167,6 +160,7 @@ export class CertificatesComponent {
 		private _alert: AlertService,
 		private _form: FormService,
 		private _core: CoreService,
-		private _router: Router
+		private _router: Router,
+		private _us: UserService
 	) { }
 }

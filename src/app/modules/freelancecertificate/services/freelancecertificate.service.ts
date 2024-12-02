@@ -24,6 +24,8 @@ export interface Freelancecertificate extends CrudDocument {
 export class FreelancecertificateService extends CrudService<Freelancecertificate> {
 	freelancecertificates: Freelancecertificate[] = this.getDocs();
 
+	freelancecertificatesByAuthor: Record<string, Freelancecertificate[]> = {};
+
 	constructor(
 		_http: HttpService,
 		_store: StoreService,
@@ -41,6 +43,8 @@ export class FreelancecertificateService extends CrudService<Freelancecertificat
 		);
 
 		this.get();
+
+		this.filteredDocuments(this.freelancecertificatesByAuthor);
 
 		_core.on('wipe').subscribe(this.get.bind(this));
 	}
