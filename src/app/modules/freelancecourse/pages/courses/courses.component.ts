@@ -6,6 +6,7 @@ import { TranslateService } from 'src/app/core/modules/translate/translate.servi
 import { FormInterface } from 'src/app/core/modules/form/interfaces/form.interface';
 import { Router } from '@angular/router';
 import { FreelanceskillService } from 'src/app/modules/freelanceskill/services/freelanceskill.service';
+import { UserService } from 'src/app/modules/user/services/user.service';
 
 @Component({
 	templateUrl: './courses.component.html',
@@ -191,7 +192,7 @@ export class CoursesComponent {
 	};
 
 	get rows(): Freelancecourse[] {
-		return this._sf.freelancecourses;
+		return this._sf.freelancecoursesByAuthor[this._us.user._id];
 	}
 
 	constructor(
@@ -201,6 +202,7 @@ export class CoursesComponent {
 		private _form: FormService,
 		private _core: CoreService,
 		private _router: Router,
-		private _fss: FreelanceskillService
+		private _fss: FreelanceskillService,
+		private _us: UserService
 	) { }
 }

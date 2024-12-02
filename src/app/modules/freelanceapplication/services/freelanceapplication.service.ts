@@ -24,8 +24,6 @@ export interface Freelanceapplication extends CrudDocument {
 export class FreelanceapplicationService extends CrudService<Freelanceapplication> {
 	freelanceapplications: Freelanceapplication[] = this.getDocs();
 
-	applicationsByJob: Record<string, Freelanceapplication[]> = {};
-
 	freelanceapplicationsByAuthor: Record<string, Freelanceapplication[]> = {};
 
 	constructor(
