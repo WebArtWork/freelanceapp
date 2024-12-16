@@ -3,15 +3,23 @@
 <div class="wrapper">
     <h3>{{startup.name}}</h3>
     <p>{{startup.description}}</p>
-    <p>{{startup.currency}}</p>
-    <p>{{startup.socials}}</p>
-    <p>{{startup.pitchDeck}}</p>
+    <p><strong>Currency:</strong> {{startup.currency}}</p>
+    <p><strong>Socials:</strong>  {{startup.socials}}</p>
+    <p><strong>pitchDeck:</strong> {{startup.pitchDeck}}</p>
 </div>
 
 <h1>Jobs</h1>
 <div class="wrapper" *ngFor="let job of jobs">
     <h3>{{job.title}}</h3>
     <p>{{job.description}}</p>
+    <p>{{job.skills}}</p>
+    <p>{{job.type}}</p>
+    <p>{{job.salary}}</p>
+    <p>{{job.location}}</p>
+    <p>{{job.experience}}</p>
+    <p>{{job.deadline}}</p>
+    <p>{{job.courses}}</p>
+    <p>{{job.tests}}</p>
 </div>
 
 <h1>Courses</h1>
