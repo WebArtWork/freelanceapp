@@ -1,0 +1,12 @@
+<h1>Courses</h1>
+
+<div class="wrapper" *ngFor="let course of courses" routerLink="/course/{{course._id}}">
+    <h3>{{course.cost}}</h3>
+    <p>{{course.title}}</p>
+    <p>{{course.description}}</p>
+    <p>{{course.duration}}</p>
+    <p>{{course.materials}}</p>
+    <p>{{course.skills}}</p>
+    <p>{{course.expiration}}</p>
+    <wbutton routerLink="/startup/{{course.startup}}">Startup</wbutton>
+</div>

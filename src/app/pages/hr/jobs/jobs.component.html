@@ -1,0 +1,13 @@
+<h1>Jobs</h1>
+<div class="wrapper" *ngFor="let job of jobs" routerLink="/job/{{job._id}}">
+	<h3>{{job.title}}</h3>
+	<p>{{job.type}} - {{job.experience}}</p>
+	<p><strong>Description:</strong> {{job.description}}</p>
+	<p class="skills">{{job.skills}}</p>
+	<div class="badge-line">
+		<span>Salary: {{job.salary}}</span>
+		<span>Location: {{job.location}}</span>
+		<span>Deadline: {{job.deadline | date}}</span>
+	</div>
+	<wbutton routerLink="/startup/{{job.startup}}">Startup</wbutton>
+</div>

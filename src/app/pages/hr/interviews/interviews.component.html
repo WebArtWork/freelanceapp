@@ -1,0 +1,11 @@
+<h1>Interviews</h1>
+
+<div class="wrapper" *ngFor="let interview of interviews" routerLink="/interview/{{interview._id}}">
+    <h3>{{interview.date}}</h3>
+    <p>{{interview.date}}</p>
+    <p>{{interview.grade}}</p>
+    <p>{{interview.isApproved}}</p>
+    <p>{{interview.link}}</p>
+    <p>{{interview.status}}</p>
+    <p>{{interview.type}}</p>
+</div>

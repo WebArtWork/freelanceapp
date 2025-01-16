@@ -1,0 +1,9 @@
+<h1>Certificates</h1>
+
+<div class="wrapper" *ngFor="let certificate of certificates" routerLink="/certificate/{{certificate._id}}">
+    <h3>{{certificate.granted}}</h3>
+    <p>{{certificate.grade}}</p>
+    <p>{{certificate.isCompleted}}</p>
+    <p>{{certificate.answer}}</p>
+    <p>{{certificate.answers}}</p>
+</div>

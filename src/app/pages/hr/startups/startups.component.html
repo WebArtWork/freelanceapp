@@ -1,0 +1,10 @@
+<h1>Startups</h1>
+<div class="wrapper" *ngFor="let startup of startups" routerLink="/startup/{{startup._id}}">
+    <h3>{{startup.name}}</h3>
+    <p><strong>Description:</strong> {{startup.description}}</p>
+    <div class="badge-line">
+		<span><strong>Currency:</strong> {{startup.currency}}</span>
+		<span><strong>Socials:</strong> {{startup.socials}}</span>
+		<span><strong>pitchDeck:</strong> {{startup.pitchDeck}}</span>
+	</div>
+</div>

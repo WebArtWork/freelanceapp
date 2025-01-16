@@ -310,6 +310,251 @@ const routes: Routes = [
 		]
 	},
 	{
+		path: 'hr',
+		canActivate: [AuthenticatedGuard],
+		component: UserComponent,
+		children: [
+			/* hr */
+			{
+				path: 'startup',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Startup'
+					}
+				},
+				loadChildren: () => import('./pages/hr/startup/startup.module').then(m => m.StartupModule)
+			}, 
+			{
+				path: 'startups',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Startups'
+					}
+				},
+				loadChildren: () => import('./pages/hr/startups/startups.module').then(m => m.StartupsModule)
+			}, 
+			{
+				path: 'interview',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Interview'
+					}
+				},
+				loadChildren: () => import('./pages/hr/interview/interview.module').then(m => m.InterviewModule)
+			}, 
+			{
+				path: 'certificates',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Certificates'
+					}
+				},
+				loadChildren: () => import('./pages/hr/certificates/certificates.module').then(m => m.CertificatesModule)
+			}, 
+			{
+				path: 'interviews',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Interviews'
+					}
+				},
+				loadChildren: () => import('./pages/hr/interviews/interviews.module').then(m => m.InterviewsModule)
+			}, 
+			{
+				path: 'test',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Test'
+					}
+				},
+				loadChildren: () => import('./pages/hr/test/test.module').then(m => m.TestModule)
+			}, 
+			{
+				path: 'tests',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Tests'
+					}
+				},
+				loadChildren: () => import('./pages/hr/tests/tests.module').then(m => m.TestsModule)
+			}, 
+			{
+				path: 'course',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Course'
+					}
+				},
+				loadChildren: () => import('./pages/hr/course/course.module').then(m => m.CourseModule)
+			}, 
+			{
+				path: 'courses',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Courses'
+					}
+				},
+				loadChildren: () => import('./pages/hr/courses/courses.module').then(m => m.CoursesModule)
+			}, 
+			{
+				path: 'certificate',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Certificate'
+					}
+				},
+				loadChildren: () => import('./pages/hr/certificate/certificate.module').then(m => m.CertificateModule)
+			}, 
+			{
+				path: 'job',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Job'
+					}
+				},
+				loadChildren: () => import('./pages/hr/job/job.module').then(m => m.JobModule)
+			}, 
+			{
+				path: 'jobs',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Jobs'
+					}
+				},
+				loadChildren: () => import('./pages/hr/jobs/jobs.module').then(m => m.JobsModule)
+			}, 
+			{
+				path: 'profile',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'My Profile'
+					}
+				},
+				loadChildren: () =>
+					import('./pages/hr/profile/profile.module').then(
+						(m) => m.ProfileModule
+					)
+			},
+			{
+				path: 'manage/jobs',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Jobs'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancejob/pages/jobs/jobs.module').then(
+						(m) => m.JobsModule
+					)
+			},
+			{
+				path: 'manage/applications',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Applications'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceapplication/pages/applications/applications.module').then(
+						(m) => m.ApplicationsModule
+					)
+			},
+			{
+				path: 'manage/interviews',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Interviews'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceinterview/pages/interviews/interviews.module').then(
+						(m) => m.InterviewsModule
+					)
+			},
+			{
+				path: 'manage/courses',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Courses'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancecourse/pages/courses/courses.module').then(
+						(m) => m.CoursesModule
+					)
+			},
+			{
+				path: 'manage/certificates',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Certificates'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancecertificate/pages/certificates/certificates.module').then(
+						(m) => m.CertificatesModule
+					)
+			},
+			{
+				path: 'manage/skills',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Skills'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelanceskill/pages/skills/skills.module').then(
+						(m) => m.SkillsModule
+					)
+			},
+			{
+				path: 'manage/startups',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Startups'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancestartup/pages/startups/startups.module').then(
+						(m) => m.StartupsModule
+					)
+			},
+			{
+				path: 'manage/tests',
+				canActivate: [MetaGuard],
+				data: {
+					meta: {
+						title: 'Tests'
+					}
+				},
+				loadChildren: () =>
+					import('./modules/freelancetest/pages/tests/tests.module').then(
+						(m) => m.TestsModule
+					)
+			}
+		]
+	},
+	{
 		path: 'admin',
 		canActivate: [AdminsGuard],
 		component: UserComponent,
