@@ -15,7 +15,7 @@ export class JobComponent {
 	job: Freelancejob = {} as Freelancejob;
 
 	applications: Freelanceapplication[] = [];
-	
+
 	get courses(): Freelancecourse[] {
 		return this.job.courses as unknown as Freelancecourse[];
 	}
@@ -31,7 +31,9 @@ export class JobComponent {
 			name: 'public'
 		}).subscribe(job => this.job = job);
 
-		this._fas.get({ query: '?job=' + this.jobId }, { name: 'public' }).subscribe(applications => {this.applications = applications;});
+		this._fas.get({ query: '?job=' + this.jobId }, { name: 'public' }).subscribe(applications => {
+			this.applications = applications.filter(applications => applications.job === this.jobId);
+		});
 	}
 
 	constructor(
