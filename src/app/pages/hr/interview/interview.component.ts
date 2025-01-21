@@ -6,7 +6,7 @@ import { Freelanceinterview, FreelanceinterviewService } from 'src/app/modules/f
 	styleUrls: ['./interview.component.scss']
 })
 export class InterviewComponent {
-	interviewId: string = this._router.url.replace('/interview/', '');
+	interviewId: string = this._router.url.replace('/hr/interview/', '');
 
 	interview: Freelanceinterview = {} as Freelanceinterview;
 

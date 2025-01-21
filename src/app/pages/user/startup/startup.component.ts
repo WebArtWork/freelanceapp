@@ -15,31 +15,40 @@ export class StartupComponent {
 	startup: Freelancestartup = {} as Freelancestartup;
 
 	jobs: Freelancejob[] = [];
+
 	courses: Freelancecourse[] = [];
+
 	tests: Freelancetest[] = [];
 
 	load() {
-		this._fss.fetch(
-			{ _id: this.startupId },
-			{ name: 'public' }
-		).subscribe(startup => this.startup = startup);
-		this._fjs.get(
-			{ query: `?startup=${this.startupId}` },
-			{ name: 'public' }
-		).subscribe(jobs => {
+		this._fss.fetch({
+			_id: this.startupId
+		}, {
+			name: 'public'
+		}).subscribe(startup => this.startup = startup);
+
+		this._fjs.get({
+			query: `?startup=${this.startupId}`
+		}, {
+			name: 'public'
+		}).subscribe(jobs => {
 			this.jobs = jobs.filter(job => job.startup === this.startupId);
 		});
 
-		this._fcs.get(
-			{ query: `?startup=${this.startupId}` },
-			{ name: 'public' }
+		this._fcs.get({
+			query: `?startup=${this.startupId}`
+		}, {
+			name: 'public'
+		}
 		).subscribe(courses => {
 			this.courses = courses.filter(course => course.startup === this.startupId);
 		});
 
-		this._fts.get(
-			{ query: `?startup=${this.startupId}` },
-			{ name: 'public' }
+		this._fts.get({
+			query: `?startup=${this.startupId}`
+		}, {
+			name: 'public'
+		}
 		).subscribe(tests => {
 			this.tests = tests.filter(test => test.startup === this.startupId);
 		});

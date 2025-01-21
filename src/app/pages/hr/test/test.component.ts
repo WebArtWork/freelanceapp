@@ -6,7 +6,7 @@ import { Freelancetest, FreelancetestService } from 'src/app/modules/freelancete
 	styleUrls: ['./test.component.scss']
 })
 export class TestComponent {
-	testId: string = this._router.url.replace('/test/', '');
+	testId: string = this._router.url.replace('/hr/test/', '');
 	
 	test: Freelancetest = {} as Freelancetest;
 

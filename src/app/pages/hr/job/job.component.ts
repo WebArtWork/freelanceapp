@@ -10,7 +10,7 @@ import { Freelancetest } from 'src/app/modules/freelancetest/services/freelancet
 })
 
 export class JobComponent {
-	jobId: string = this._router.url.replace('/job/', '');
+	jobId: string = this._router.url.replace('/hr/job/', '');
 
 	job: Freelancejob = {} as Freelancejob;
 

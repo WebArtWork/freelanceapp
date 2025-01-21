@@ -6,7 +6,7 @@ import { Freelancecertificate, FreelancecertificateService } from 'src/app/modul
 	styleUrls: ['./certificate.component.scss']
 })
 export class CertificateComponent {
-	certificateId: string = this._router.url.replace('/certificate/', '');
+	certificateId: string = this._router.url.replace('/hr/certificate/', '');
 
 	certificate: Freelancecertificate = {} as Freelancecertificate;
 	
